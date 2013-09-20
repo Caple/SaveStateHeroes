@@ -6,8 +6,8 @@ var aspectRatio = 0.5625;
 
 function setSkin(skinName) {
     if (initialized && !loadingValues) serverHub.server.setUserOption('skinNameMain', skinName);
-    //$("#dynamicCSS").attr('href', '/skins/' + skinName + '.css?t=' + new Date().getTime());
-    $("#dynamicCSS").attr('href', '/skins/feels.css?t=' + new Date().getTime());
+    $("#dynamicCSS").attr('href', '/skins/' + skinName + '.css?t=' + new Date().getTime());
+    //$("#dynamicCSS").attr('href', '/skins/feels.css?t=' + new Date().getTime());
 }
 
 function resizeContent() {

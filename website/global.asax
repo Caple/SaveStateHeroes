@@ -1,4 +1,5 @@
 ﻿<%@ Application Language="VB" %>
+<%@ Import Namespace="System" %>
 <%@ Import Namespace="UserSystem" %>
 <%@ Import Namespace="System.Web.Routing" %>
 <%@ Import Namespace="Microsoft.AspNet.SignalR" %>
@@ -56,3 +57,4 @@
     End Sub
 
 </script>
+

@@ -61,10 +61,10 @@ Namespace UserSystem
                 caller.postSystemMessage("You can not send pages while muted.")
             ElseIf StreamProcessor.streamer = Me Then
                 caller.postSystemMessage("You can not page a user who is streaming.")
-            ElseIf Date.Compare(lastPage.AddMinutes(15), Now) > 0 Then
-                caller.postSystemMessage("This user has already been paged recently. Try again later.")
-            ElseIf Not privileges.isOfficer AndAlso Date.Compare(caller.lastOutgoingPage.AddMinutes(10), Now) > 0 Then
-                caller.postSystemMessage("You are excessively paging users. Page suppressed.")
+           ' ElseIf Date.Compare(lastPage.AddMinutes(15), Now) > 0 Then
+           '     caller.postSystemMessage("This user has already been paged recently. Try again later.")
+           ' ElseIf Not privileges.isOfficer AndAlso Date.Compare(caller.lastOutgoingPage.AddMinutes(10), Now) > 0 Then
+            '    caller.postSystemMessage("You are excessively paging users. Page suppressed.")
             Else
                 lastPage = Now
                 caller.lastOutgoingPage = Now
@@ -76,6 +76,43 @@ Namespace UserSystem
             Return False
         End Function
 
+		Function TryJason(caller as OnlineUser) As Boolean
+			If Infractions.isBanned(caller) Then
+				caller.postSystemMessage("you can not jason while banned.")
+			ElseIf Infractions.isMuted(caller) Then
+				caller.postSystemMessage("You can not jason while muted.")
+			Else
+				client.audioJason(caller.displayName)
+				Return True
+			End If
+			Return False
+		End Function
+		
+		Function TrySlam(caller as OnlineUser) As Boolean
+			If Infractions.isBanned(caller) Then
+				caller.postSystemMessage("you can not slam while banned.")
+			ElseIf Infractions.isMuted(caller) Then
+				caller.postSystemMessage("You can not slam while muted.")
+			Else
+				client.audioSlam(caller.displayName)
+				Return True
+			End If
+			Return False
+		End Function
+		
+				Function TryAustin(caller as OnlineUser) As Boolean
+			If Infractions.isBanned(caller) Then
+				caller.postSystemMessage("you can not austin while banned.")
+			ElseIf Infractions.isMuted(caller) Then
+				caller.postSystemMessage("You can not austin while muted.")
+			Else
+				client.audioAustin(caller.displayName)
+				Return True
+			End If
+			Return False
+		End Function
+		
+		
         Private _lastWhsiperer As FrontPageUser = Nothing
         Property lastWhisperer() As FrontPageUser
             Get

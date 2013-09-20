@@ -1,4 +1,10 @@
-﻿Namespace UserSystem
+﻿Imports Microsoft.VisualBasic
+Imports System.Diagnostics
+Imports MySql.Data.MySqlClient
+
+
+
+Namespace UserSystem
 
     Public Class Accounts
 

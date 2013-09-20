@@ -253,6 +253,17 @@ Public Class ChatMessage
                 If StreamProcessor.streamer = sendingUser Then
                     frontHTML.Append("<img src='images/streamerpost.png' style='margin-right: 3px;'/>")
                 End If
+				If sendingUser.privileges.isOfficer Then
+                    frontHTML.Append("<img src='images/BadgeSprite.png' style='margin-right: 3px;'/>")
+                End IF
+				If sendingUser.name = ("GaryOak") Then
+                    frontHTML.Append("<img src='images/garybadge.png' style='margin-right: 3px;'/>")
+                End IF
+				If sendingUser.privileges.isBumper OrElse sendingUser.privileges.isBumper Then
+                    frontHTML.Append("<img src=""")
+					frontHTML.Append(utils.getAvatarPath(sendingUser))
+					frontHTML.Append(""" class=""avatarClass"" />")
+                End IF
                 frontHTML.Append("<span style='font-weight: bold; color: ")
                 frontHTML.Append(sendingUser.options.chatColorName)
                 frontHTML.Append(";'>")
@@ -364,12 +375,23 @@ Public Class ChatMessage
             If sendingUser.isFlagSet("nofair") Then
                 innerHTML &= " [-nofair]"
             End If
+			
+			If sendingUser.isFlagSet("sasuxnaru") Then
+				innerHTML = "[color=C7185]Sasu [color=FFFFFF]x[/color] Naru[/color][color=FF0044] is love[/color] [color=FF000]<3[/color] [color=FF155]^.^[/color] "
+			End If
+			If sendingUser.isFlagSet("dickbutt") Then
+				innerHTML = " Man, I could really use some dicks in my butt right about now"
+			End If
+			If sendingUser.isFlagSet("chaosdunk") Then
+				sendingUser.TrySlam(sendingUser)
+				innerHTML &= " I got dunked"
+			End If
 
-            If rand.NextDouble.CompareTo(0.8D) > 0 Then
-                innerHTML = "[color=C71585]Sasu [color=FFFFFF]x[/color] Naru[/color] [color=FF0044]is love[/color] [color=FF0000]<3[/color]"
-            Else
-                innerHTML = innerHTML & " [color=FF0000]<3[/color] ^.^"
-            End If
+      '      If rand.NextDouble.CompareTo(0.8D) > 0 Then
+       '         innerHTML = "[color=C71585]Sasu [color=FFFFFF]x[/color] Naru[/color] [color=FF0044]is love[/color] [color=FF0000]<3[/color]"
+       '     Else
+        '        innerHTML = innerHTML & " [color=FF0000]<3[/color] ^.^"
+         '   End If
 
 
             'Parse in-text codes

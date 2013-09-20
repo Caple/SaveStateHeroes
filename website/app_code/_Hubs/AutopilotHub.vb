@@ -1,8 +1,8 @@
 ﻿Imports Microsoft.VisualBasic
 Imports System.Xml
-Imports Microsoft.AspNet.SignalR.Hubs
 Imports MySql.Data.MySqlClient
 Imports UserSystem
+Imports Microsoft.AspNet.SignalR
 
 Public Class AutopilotHub
     Inherits Hub
@@ -12,7 +12,7 @@ Public Class AutopilotHub
         Get
             Return _skippingLocked
         End Get
-        Set(value As Boolean)
+        Set(ByVal value As Boolean)
             _skippingLocked = value
             ServerPersistance.setField("skippingLocked", value)
         End Set
@@ -49,7 +49,7 @@ Public Class AutopilotHub
         End If
     End Function
 
-    Public Shared Sub requestUserSkip(from As FrontPageUser)
+    Public Shared Sub requestUserSkip(ByVal from As FrontPageUser)
         If skippingLocked Then
             from.postSystemMessage("Skipping is currently disabled by an officer.")
             Return
@@ -126,7 +126,7 @@ Public Class AutopilotHub
         End If
     End Sub
 
-    Public Function cacheVideoInformation(videoURL As String) As AutopilotVideo
+    Public Function cacheVideoInformation(ByVal videoURL As String) As AutopilotVideo
         Dim user As FrontPageUser = Connections.getSessionUser
         If user IsNot Nothing AndAlso user.privileges.canAdminAutoPilot Then
             Return tryCache(videoURL)
@@ -135,7 +135,7 @@ Public Class AutopilotHub
         End If
     End Function
 
-    Public Function addVideo(videoID As String) As Boolean
+    Public Function addVideo(ByVal videoID As String) As Boolean
         Dim user As FrontPageUser = Connections.getSessionUser
         If user IsNot Nothing AndAlso user.privileges.canAdminAutoPilot Then
             If Not cachedXMLInformation.ContainsKey(videoID) Then
@@ -147,7 +147,7 @@ Public Class AutopilotHub
         End If
     End Function
 
-    Public Shared Function getCachedVideoInfo(videoID As String) As AutopilotVideo
+    Public Shared Function getCachedVideoInfo(ByVal videoID As String) As AutopilotVideo
         If Not cachedXMLInformation.ContainsKey(videoID) Then
             Return tryCache("http://www.youtube.com/watch?v=" & videoID)
         Else
@@ -155,11 +155,11 @@ Public Class AutopilotHub
         End If
     End Function
 
-    Public Function removeVideo(index As Integer) As Boolean
+    Public Function removeVideo(ByVal index As Integer) As Boolean
         Return reorderVideos(index, -1)
     End Function
 
-    Public Function reorderVideos(oldIndex As Integer, newIndex As Integer) As Boolean
+    Public Function reorderVideos(ByVal oldIndex As Integer, ByVal newIndex As Integer) As Boolean
         Dim user As FrontPageUser = Connections.getSessionUser
         If user IsNot Nothing AndAlso user.privileges.canAdminAutoPilot Then
             SyncLock videos
@@ -227,7 +227,7 @@ Public Class AutopilotHub
         Return False
     End Function
 
-    Public Shared Function tryCache(possibleVideoURL As String) As AutopilotVideo
+    Public Shared Function tryCache(ByVal possibleVideoURL As String) As AutopilotVideo
         Dim newVideo As New AutopilotVideo
         Dim YoutubeMatch As Match = Regex.Match(possibleVideoURL, "youtu(?:\.be|be\.com)/(?:.*v(?:/|=)|(?:.*/)?)([a-zA-Z0-9-_]+)", RegexOptions.IgnoreCase)
         If YoutubeMatch.Success Then
@@ -261,7 +261,7 @@ Public Class AutopilotHub
         Return Nothing
     End Function
 
-    Private Function moveXMLInformationToLive(videoID As String, apAdmin As FrontPageUser) As Boolean
+    Private Function moveXMLInformationToLive(ByVal videoID As String, ByVal apAdmin As FrontPageUser) As Boolean
         SyncLock videos
             Try
 
@@ -354,7 +354,7 @@ Public Class AutopilotHub
         Clients.Caller.clientPing()
     End Sub
 
-    Public Function skipTo(index As Integer, seconds As Integer) As Boolean
+    Public Function skipTo(ByVal index As Integer, ByVal seconds As Integer) As Boolean
         Dim user As FrontPageUser = Connections.getSessionUser
         If user IsNot Nothing AndAlso user.privileges.canAdminAutoPilot Then
             If index <> currentPlayingIndex Then
@@ -390,7 +390,7 @@ Public Class AutopilotHub
         Return False
     End Function
 
-    Private Shared Sub setPlayingVideo(index As Integer, syncClients As Boolean)
+    Private Shared Sub setPlayingVideo(ByVal index As Integer, ByVal syncClients As Boolean)
         videoTimer.Stop()
         If index < videos.Count Then
             currentVideo = videos(index)

@@ -7,7 +7,7 @@ Public Class Utils
     Public Shared lastRecycle As Date
     Public Shared lastError As String = "no error logged"
 
-    Private Const connectionStringVars As String = "server=localhost;Database=candycorn;Uid=ssh_asp;Pwd=ilqkqklT6sVFfeuNrgwT;"
+    Private Const connectionStringVars As String = "server=localhost;Database=candycorn;Uid=ssh_asp;Pwd=candycorn;"
     Public Shared connectionString As String = (New MySql.Data.MySqlClient.MySqlConnectionStringBuilder(connectionStringVars)).ToString()
 
     Public Shared Function getAvatarPath(User As UserSystem.OfflineUser) As String

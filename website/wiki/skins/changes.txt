@@ -1,0 +1,27 @@
+Darkvector 0.3
+================
+MediaWiki skin created by:
+Abhi M Balakrishnan(http://www.mediawiki.org/wiki/User:Abhi_M_Balakrishnan) and 
+Arcane (http://www.mediawiki.org/wiki/User:Arcane21)
+
+Changes since 0.2
+-----------------
+* Includes a modified Vector.hooks.php file that will allow the features of Extension:Vector to work for the Darkvector skin. It will overwrite the default hooks file, so it should be backed up (as it will disable the hook implementation for the standard Vector skin)
+
+
+Changes since 0.1
+------------------
+* Removal of the drop down box for the personal links on the header - The default behavoir in Vector was restored as the drop down box bled through the search box, making some links hard to see and use.
+* The search box also had it's default modifications from the original Vector skin screen.css restored, as the original Darkvector skin had some graphical errors that made typing text in the search bar impossible to see.
+* Darkvector.deps.php file was also added, thus obviating the need for any modifications to LocalSettings.php, as the skin will be automatically added to to the list of skins in Special:Preferences.
+
+Installation
+--------------
+Add all the files in this folder to the skins folder of your MediaWiki installation.
+You can verify the installation by looking for "Darkvector" on the list of skins in Special:Preferences.
+
+Tested on Mediawiki 1.19.3. Please report bugs/suggestions on following pages.
+
+Pages: 
+		https://code.google.com/p/darkvector/
+		https://www.mediawiki.org/wiki/Manual:Gallery_of_user_styles/Darkvector

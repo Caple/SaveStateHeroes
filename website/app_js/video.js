@@ -367,7 +367,7 @@ function setVideoVolume(volume) {
     if (currentVideoMode == "livestream") {
         player.setVolume(volume);
     } else if (currentVideoMode == "youtube") {
-        player.setVolume(100);
-        //player.setVolume(volume * 100);
+        //player.setVolume(100);
+        player.setVolume(volume * 100);
     }
 }

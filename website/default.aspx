@@ -27,7 +27,7 @@
         <script type="text/javascript" src="/jslib/jquery.idle-timer.js"></script>
         <script type="text/javascript" src="/jslib/jquery.cookie.js"></script>
         <script type="text/javascript" src="/jslib/jquery.columnizer.js"></script>
-        <script type="text/javascript" src="/jslib/jquery.signalR-1.0.0-rc1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery.signalR-1.1.3.min.js"></script>
         <script type="text/javascript" src="/jslib/flowplayer-3.2.12.min.js" ></script>
         <script type="text/javascript" src="/jslib/swfobject.js"></script>
         <script type="text/javascript" src="/jslib/uuid.core.js"></script>
@@ -64,7 +64,7 @@
                         <tr>
                             <td>
                                 <ul>
-                                    <!--<li><a href="http://wiki.savestateheroes.com" target="_blank">Wiki</a></li>-->
+                                    <li><a href="/wiki/" target="_blank">Wiki</a></li>
                                     <li><a href="/forum/" target="_blank">Forum</a></li> 
                                     <li><a href="schedule.aspx" target="_blank">Schedule</a></li>
                                 </ul>
@@ -80,12 +80,16 @@
                 </div>
                 <div id="socialNav">
                     <div style="float:right; margin-left: 8px; margin-right: 0;">
-                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="width: 78px;">
-                            <input type="hidden" name="cmd" value="_s-xclick">
-                            <input type="hidden" name="hosted_button_id" value="396EU3REZL54Y">
-                            <input type="image" src="http://savestateheroes.com/images/donate.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                        </form>
+                        	
+
+   		 	
+
+    			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    			<input type="hidden" name="cmd" value="_s-xclick">
+    			<input type="hidden" name="hosted_button_id" value="VJY6LLZMKNRDQ">
+    			<input type="image" src="http://i.imgur.com/2sYn3Xz.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+    			<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    		</form>
                     </div>
                      <div style="float:right; margin-left: 8px;">
                         <a href="http://steamcommunity.com/groups/savestateheroes" target="_blank">
@@ -102,11 +106,11 @@
                              <img src="/images/social/facebook.png" />
                         </a>
                      </div>-->
-                     <div style="float:right; margin-left: 8px">
+                     <!--<div style="float:right; margin-left: 8px">
                         <a href="http://omencraft.com/pages/about/" target="_blank">
                              <img src="/images/social/mc.png" />
                         </a>
-                     </div>
+                     </div>-->
                 </div>
             </div>
             <div id="nowLive" style="float: left; display: none">

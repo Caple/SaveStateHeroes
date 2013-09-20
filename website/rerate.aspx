@@ -8,7 +8,7 @@
 
         <link href="images/site.ico" rel="shortcut icon" type="image/x-icon" />
         <script type="text/javascript" src="/jslib/jquery-1.8.2.min.js"></script>
-        <script type="text/javascript" src="/jslib/jquery.signalR-0.5.3.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery.signalR-1.1.3.min.js"></script>
         <script type="text/javascript" src="/signalr/hubs"></script>
         <script type="text/javascript" src="/app_js/rerate.js?t=<%=DateTime.UtcNow.ToFileTimeUtc%>"></script>
 

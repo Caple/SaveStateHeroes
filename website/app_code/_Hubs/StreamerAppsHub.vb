@@ -1,6 +1,7 @@
 ﻿Imports Microsoft.VisualBasic
 Imports Microsoft.AspNet.SignalR.Hubs
 Imports MySql.Data.MySqlClient
+Imports Microsoft.AspNet.SignalR
 
 Public Class StreamerAppsHub
     Inherits Hub
@@ -70,7 +71,7 @@ Public Class StreamerAppsHub
         Return queryApplications("archived:")
     End Function
 
-    Private Function queryApplications(requieredStatus As String) As String
+    Private Function queryApplications(ByVal requieredStatus As String) As String
         SyncLock applications
             Dim builder As New StringBuilder
             For Each app As StreamerApp In applications.Values
@@ -86,7 +87,7 @@ Public Class StreamerAppsHub
         End SyncLock
     End Function
 
-    Public Function queryAppData(id As Integer) As StreamerApp
+    Public Function queryAppData(ByVal id As Integer) As StreamerApp
         Dim tryGet As StreamerApp = Nothing
         applications.TryGetValue(id, tryGet)
         If tryGet IsNot Nothing AndAlso Not canAdmin() Then
@@ -95,7 +96,7 @@ Public Class StreamerAppsHub
         Return tryGet
     End Function
 
-    Public Function postNewApplication(rating As Double, clientTimezone As String, clientAge As String, streamProgram As String, essay1 As String, essay2 As String, dxDiag As String, lsUsername As String, skypeName As String) As Integer
+    Public Function postNewApplication(ByVal rating As Double, ByVal clientTimezone As String, ByVal clientAge As String, ByVal streamProgram As String, ByVal essay1 As String, ByVal essay2 As String, ByVal dxDiag As String, ByVal lsUsername As String, ByVal skypeName As String) As Integer
         Dim user As UserSystem.FrontPageUser = UserSystem.Connections.getSessionUser
         If user IsNot Nothing Then
             Dim newApp As New StreamerApp
@@ -140,7 +141,7 @@ Public Class StreamerAppsHub
         End If
     End Function
 
-    Public Function adminAction(appID As Integer, action As String) As Boolean
+    Public Function adminAction(ByVal appID As Integer, ByVal action As String) As Boolean
         Dim user As UserSystem.FrontPageUser = UserSystem.Connections.getSessionUser
         If user IsNot Nothing AndAlso user.privileges.canAdminApplications Then
             Dim tryGet As StreamerApp = Nothing
@@ -269,7 +270,7 @@ Public Class StreamerAppsHub
         Return False
     End Function
 
-    Public Sub updateDBRecord(appID As Integer)
+    Public Sub updateDBRecord(ByVal appID As Integer)
         Dim app As StreamerApp = Nothing
         applications.TryGetValue(appID, app)
         If app Is Nothing Then Return
@@ -345,10 +346,10 @@ Public Class StreamerAppsHub
         Clients.Caller.clientPing()
     End Sub
 
-    Public Sub serverPingWithData(packet As Object)
+    Public Sub serverPingWithData(ByVal packet As Object)
     End Sub
 
-    Public Function updateConnectionRating(rating As Double) As Boolean
+    Public Function updateConnectionRating(ByVal rating As Double) As Boolean
         Dim user As UserSystem.FrontPageUser = UserSystem.Connections.getSessionUser
         If user IsNot Nothing Then
             Dim newRating As String = Math.Round(rating, 2).ToString

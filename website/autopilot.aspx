@@ -10,12 +10,14 @@
         <link rel="stylesheet" type="text/css" href="/css/autopilot.css?v=3"/>
         <script type="text/javascript" src="/jslib/jquery-1.8.2.min.js"></script>
         <script type="text/javascript" src="/jslib/jquery-ui-1.9.1.min.js"></script>
-        <script type="text/javascript" src="/jslib/jquery.signalR-1.0.0-rc1.min.js"></script>
+        <script type="text/javascript" src="/jslib/jquery.json.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery.signalR-1.1.3.min.js"></script>
         <script type="text/javascript" src='<%= ResolveClientUrl("~/signalr/hubs") %>'></script>
         <script type="text/javascript" src="/jslib/jquery.easing.1.3.js"></script>
         <script type="text/javascript" src="/jslib/jquery.scrollTo-1.4.3.1-min.js"></script>
         <script type="text/javascript" src="/jslib/jquery.ba-dotimeout.min.js"></script>
         <script type="text/javascript" src="/app_js/autopilot.js?t=<%=DateTime.UtcNow.ToFileTimeUtc%>"></script>
+		
 
     </head>
     <body>

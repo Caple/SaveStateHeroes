@@ -1,6 +1,7 @@
 ﻿Imports Microsoft.VisualBasic
 Imports Microsoft.AspNet.SignalR.Hubs
 Imports UserSystem
+Imports Microsoft.AspNet.SignalR
 
 Public Class ScheduleHub
     Inherits Hub
@@ -33,11 +34,11 @@ Public Class ScheduleHub
         End If
     End Function
 
-    Public Function queryEvents(startTime As Date, endTime As Date) As ScheduleEvent.InnerEventObject()
+    Public Function queryEvents(ByVal startTime As Date, ByVal endTime As Date) As ScheduleEvent.InnerEventObject()
         Return ScheduleProcessor.getEvents(startTime, endTime)
     End Function
 
-    Public Function addEvent(start As Date, ends As Date, description As String) As Boolean
+    Public Function addEvent(ByVal start As Date, ByVal ends As Date, ByVal description As String) As Boolean
         Dim user As FrontPageUser = Connections.getSessionUser
         If user IsNot Nothing AndAlso user.privileges.canEditSchedule Then
             Dim result As Boolean = ScheduleProcessor.addEvent(user, start, ends, description)
@@ -49,7 +50,7 @@ Public Class ScheduleHub
         Return False
     End Function
 
-    Public Function updateEventTime(eventID As Integer, startTime As Date, endTime As Date) As Boolean
+    Public Function updateEventTime(ByVal eventID As Integer, ByVal startTime As Date, ByVal endTime As Date) As Boolean
         Dim user As FrontPageUser = Connections.getSessionUser
         If user IsNot Nothing AndAlso user.privileges.canEditSchedule Then
             Dim result As Boolean = ScheduleProcessor.editEvent(user, eventID, startTime, endTime)
@@ -61,7 +62,7 @@ Public Class ScheduleHub
         Return False
     End Function
 
-    Public Function updateEventDescription(eventID As Integer, description As String) As Boolean
+    Public Function updateEventDescription(ByVal eventID As Integer, ByVal description As String) As Boolean
         Dim user As FrontPageUser = Connections.getSessionUser
         If user IsNot Nothing AndAlso user.privileges.canEditSchedule Then
             Dim result As String = ScheduleProcessor.editEvent(user, eventID, description)
@@ -73,7 +74,7 @@ Public Class ScheduleHub
         Return False
     End Function
 
-    Public Function deleteEvent(eventID As Integer) As Boolean
+    Public Function deleteEvent(ByVal eventID As Integer) As Boolean
         Dim user As FrontPageUser = Connections.getSessionUser
         If user IsNot Nothing AndAlso user.privileges.canEditSchedule Then
             Dim result As Boolean = ScheduleProcessor.deleteEvent(user, eventID)

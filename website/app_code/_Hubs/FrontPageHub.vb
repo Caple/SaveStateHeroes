@@ -1,6 +1,7 @@
 ﻿Imports Microsoft.VisualBasic
 Imports Microsoft.AspNet.SignalR.Hubs
 Imports UserSystem
+Imports Microsoft.AspNet.SignalR
 
 Public Class FrontPageHub
     Inherits Hub
@@ -37,7 +38,7 @@ Public Class FrontPageHub
         Return Nothing
     End Function
 
-    Public Sub connectionInit(pageLoad As Boolean)
+    Public Sub connectionInit(ByVal pageLoad As Boolean)
         Dim user As FrontPageUser = Connections.matchFirst(Connections.frontPageUsers, Context.ConnectionId)
         If user Is Nothing Then Return
         If Not user.isBoundToAccount Then
@@ -82,7 +83,7 @@ Public Class FrontPageHub
         Return StreamProcessor.isLive
     End Function
 
-    Public Function getUserOption(name As String) As Object
+    Public Function getUserOption(ByVal name As String) As Object
         Dim user As FrontPageUser = Connections.matchFirst(Connections.frontPageUsers, Context.ConnectionId)
         If user Is Nothing Then Return UserOptions.defaultOptions.getOption(name)
         Return user.options.getOption(name)
@@ -94,7 +95,7 @@ Public Class FrontPageHub
         Return user.options.getCommonOptions
     End Function
 
-    Public Function tryLogin(username As String, password As String) As Boolean
+    Public Function tryLogin(ByVal username As String, ByVal password As String) As Boolean
         Dim user As FrontPageUser = Connections.matchFirst(Connections.frontPageUsers, Context.ConnectionId)
         If user Is Nothing Then Return False
         Dim account As AccountDetails = Accounts.getAccountByCredentials(username, password)
@@ -108,7 +109,7 @@ Public Class FrontPageHub
         End If
     End Function
 
-    Public Shared Sub bindLoginToUser(user As FrontPageUser, account As AccountDetails, createSessionCookie As Boolean)
+    Public Shared Sub bindLoginToUser(ByVal user As FrontPageUser, ByVal account As AccountDetails, ByVal createSessionCookie As Boolean)
         Dim duplicateLogins As List(Of FrontPageUser) = Connections.matchUsers(Connections.frontPageUsers, account.username)
         For Each duplicate As FrontPageUser In duplicateLogins
             Connections.frontPageUsers.Remove(duplicate)
@@ -131,7 +132,7 @@ Public Class FrontPageHub
         sendButtons()
     End Sub
 
-    Public Sub setUserOption(name As String, value As String)
+    Public Sub setUserOption(ByVal name As String, ByVal value As String)
         Dim user As FrontPageUser = Connections.matchFirst(Connections.frontPageUsers, Context.ConnectionId)
         If user IsNot Nothing AndAlso user.isBoundToAccount Then
             user.options.setOption(name, value)
@@ -139,7 +140,7 @@ Public Class FrontPageHub
     End Sub
 
     Public Function queryUserList() As String
-      Dim guestCount As Integer
+        Dim guestCount As Integer
         Dim builder As New StringBuilder()
         Dim sorted As List(Of FrontPageUser) = Connections.frontPageUsers.ToList
         sorted.Sort()
@@ -176,7 +177,7 @@ Public Class FrontPageHub
         Return SkinList.ToArray()
     End Function
 
-    Public Function sendChatMessage(text As String) As Boolean
+    Public Function sendChatMessage(ByVal text As String) As Boolean
         Dim user As FrontPageUser = Connections.matchFirst(Connections.frontPageUsers, Context.ConnectionId)
         If user Is Nothing OrElse text.Length < 1 Then Return False
         If text.Substring(0, 1) = "/" Then
@@ -203,14 +204,14 @@ Public Class FrontPageHub
         Clients.Caller.clientPing()
     End Sub
 
-    Public Sub updateIdleStatus(isIdle As Boolean)
+    Public Sub updateIdleStatus(ByVal isIdle As Boolean)
         Dim user As FrontPageUser = Connections.matchFirst(Connections.frontPageUsers, Context.ConnectionId)
         If user Is Nothing Then Return
         If StreamProcessor.isLive AndAlso StreamProcessor.streamer IsNot Nothing AndAlso StreamProcessor.streamer = user Then Return
         user.isIdle = isIdle
     End Sub
 
-    Public Sub setVideoMode(mode As String, details As String, socialMessage As String)
+    Public Sub setVideoMode(ByVal mode As String, ByVal details As String, ByVal socialMessage As String)
         Dim user As FrontPageUser = Connections.matchFirst(Connections.frontPageUsers, Context.ConnectionId)
         If user Is Nothing Then Return
         StreamProcessor.setMode(user, mode, details, socialMessage)

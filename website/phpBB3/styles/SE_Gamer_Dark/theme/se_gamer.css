@@ -1,0 +1,221 @@
+.fl {float: left;} .fr {float: right;} .cb {clear: both;}
+
+/* font-awesome tweaks */
+
+i {
+	font-size: 15px;
+}
+
+h1.logotext {
+	font-family: "ExoDemiBold", Arial, Helvetica, sans-serif;
+	font-size: 3em;
+	letter-spacing: -1px;	
+	margin: 60px 30px 0;
+	text-shadow: 0 5px 10px #000000;
+}
+
+h1.logotext span {color: #fd6b31;}
+
+.nav {
+	width: 100%;
+	height: 34px;
+	background: url("{T_THEME_PATH}/images/nav.gif") repeat-x left top;
+	border-top: 1px solid #181818;
+}
+
+span.nav-corners-bottom {
+	background: url("{T_THEME_PATH}/images/nav_corners_right.png") no-repeat right bottom;
+	height: 10px;
+	display: block;
+	margin-top: -9px;
+	position: relative;
+	z-index: 9999;
+}
+
+.nav-corners-bottom span {
+	background: url("{T_THEME_PATH}/images/nav_corners_left.png") no-repeat left bottom;
+	height: 10px;
+	display: block;
+}
+
+.nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.nav ul li {
+	float: left;
+	position: relative;
+}
+
+.nav ul li a {
+	display: block;
+	color: #ffffff;
+	font-family: "ExoBold", Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 9px 14px 10px;
+	text-shadow: 0 0 2px #000000;
+}
+
+.nav ul li a:hover, .nav ul li.current a {
+	background: #1b1b1b;
+	color: #ff992c;
+	text-decoration: none;
+}
+
+span.droptip {
+	width: 12px;
+	height: 10px;
+	background: url("{T_THEME_PATH}/images/droptip.png") no-repeat left top;
+	display: block;
+	float: right;
+	margin: 3px 0 0 3px;
+}
+
+input.quicksearch {
+	width: 115px;
+	height: 20px;
+	background: url("{T_THEME_PATH}/images/search.png") no-repeat left top;
+	border: none;
+	margin-top: 6px;
+	margin-right: 5px;
+	padding: 2px 20px 0 30px;
+	font-family: "ExoDemiBold", Arial, Helvetica, sans-serif;
+}
+
+/*.optionspanel {
+	padding: 50px;
+	position: absolute;
+	white-space: nowrap;
+	right: 0px;
+	background: #ffffff;
+	box-shadow: 0 0 5px #000000;
+}*/
+
+.trigger {
+    background: url("{T_THEME_PATH}/images/collapse-icon.png") no-repeat;
+    width: 18px;
+    height: 19px;
+    cursor: pointer;
+    float: right;
+    position: relative;
+    z-index: 9998;
+    margin-top: -30px;
+	margin-right: 5px;
+}
+
+.active {background-position: left top;}
+.inactive {background-position: left bottom;}
+
+li.header dl.icon dt {
+	background: url("{T_THEME_PATH}/images/cattip.png") no-repeat 7px 9px;	
+}
+
+.flbg1 {
+	background-color: #202020;
+}
+
+.flbg2 {
+	background-color: #181818;
+}
+
+dd.moderators {
+    width: 17%;
+    font-size: 1.1em;
+    text-align: center;
+	line-height: 1.2em;
+}
+
+.modcolumn ul.topiclist dt {
+	width: 40%;	
+}
+
+.modcolumn dd.lastpost {
+	width: 20%;	
+}
+
+.bothsidebars dd.lastpost {
+	display: none;	
+}
+
+.bothsidebars dl.icon dt {
+	width: 70%;	
+}
+
+/* Sidebars */
+
+.sidebarwrapper {
+	position: relative;
+}
+
+/* left sidebar, right section */
+.fixedfluid-content {
+	padding: 0 0 0 170px;
+	background: white;
+}
+
+/* left sidebar */
+.fixedfluid-sidebar, .fixedfluidfixed-left {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 160px;
+	bottom: 0;
+	padding: 0;
+}
+
+/* right sidebar, left section */
+.fluidfixed-content {
+	padding-right: 270px;
+	background: white;
+}
+
+/* right sidebar */
+.fluidfixed-sidebar, .fixedfluidfixed-right {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 260px;
+	bottom: 0;
+	padding: 0;
+}
+
+/* Both sidebars, middle section */
+.fixedfluidfixed-content {
+	padding: 0 270px 0 170px;
+	background: white;
+}
+
+.ad1, .ad2 {
+	display: block;
+	float: left;
+}
+
+.ad1 {
+	margin: 0 10px 10px 0;	
+}
+
+span.topictype {
+    display: inline-block;
+    margin: 1px 4px 1px 0;
+    padding: 2px 5px;
+    background: #505050;
+    color: #ffffff;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    text-shadow: 0 -1px 0 #111111;
+}
+
+.buttons {
+	margin: 5px 0;
+}
+
+.navbar a {
+	color: #cccccc;	
+}
+
+.navbar i {
+	color: #df4910;	
+}

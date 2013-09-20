@@ -56,6 +56,19 @@ serverHub.client.audioWhisperIn = function () {
     playSound("/sounds/whisper.mp3", false);
 }
 
+serverHub.client.audioJason = function () {
+    playSound("/sounds/Jason.mp3", false);
+}
+
+serverHub.client.audioSlam = function () {
+    playSound("/sounds/slam.mp3", false);
+	document.getElementById("dynamicCSS").href = "/skins/slam.css";
+}
+
+serverHub.client.audioAustin = function () {
+    playSound("/sounds/Austin.mp3", false);
+}
+
 serverHub.client.muteVideo = function () {
     triggerVolumeSlider(0);
 }

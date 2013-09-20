@@ -16,7 +16,7 @@
         <script type="text/javascript" src="/jslib/jquery.easing.1.3.js"></script>
         <script type="text/javascript" src="/jslib/jquery.scrollTo-1.4.3.1-min.js"></script>
         <script type="text/javascript" src="/jslib/jquery.fullcalendar-custom.min.js"></script>
-        <script type="text/javascript" src="/jslib/jquery.signalR-1.0.0-rc1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery.signalR-1.1.3.min.js"></script>
         <script type="text/javascript" src="/signalr/hubs"></script>
 
         <!-- my files -->

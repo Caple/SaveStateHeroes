@@ -2,11 +2,12 @@
 Imports Microsoft.AspNet.SignalR.Hubs
 Imports MySql.Data.MySqlClient
 Imports UserSystem
+Imports Microsoft.AspNet.SignalR
 
 Public Class ChatHistoryHub
     Inherits Hub
 
-    Public Function fetchMessages(rangeStart As Date, rangeEnd As Date) As String
+    Public Function fetchMessages(ByVal rangeStart As Date, ByVal rangeEnd As Date) As String
         Dim user As FrontPageUser = Connections.getSessionUser
         If user Is Nothing Then Return "<div>This page can only be accessed by logged in officers.</div>"
         If Not user.privileges.isOfficer Then Return "<div>This page can only be accessed by officers.</div>"
