@@ -1,0 +1,21 @@
+MIT (http://mit-license.org/):
+jquery-1.8.2.min.js
+jquery-ui-1.9.1.min.js
+jquery.contextMenu
+jquery.ba-dotimeout.min.js
+jquery.fullcalendar-custom.min.js
+jquery.jplayer.min.js
+jquery.scrollTo-1.4.3.1-min.js
+jquery.spectrum.js
+jquery.tipTip.min.js
+jquery.tubeplayer.min.js
+
+BSD (http://savestateheroes.com/jslib/jquery.easing.1.3.js):
+jquery.easing.1.3.js
+
+Apache 2.0 (http://www.apache.org/licenses/LICENSE-2.0):
+jquery.signalR-0.5.3.min.js
+timezone.min.js
+
+Other (http://codecanyon.net/licenses/regular_extended):
+jquery.jeffects.js

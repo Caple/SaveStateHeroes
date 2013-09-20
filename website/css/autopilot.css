@@ -1,0 +1,186 @@
+﻿html {
+    font-size: 1.0em;
+    margin:0;
+    padding:0;
+    height: 100%;
+}
+
+body {
+    color: #fff;
+    background: rgb(77,87,109);
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(77,87,109,1) 0%, rgba(48,58,81,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(77,87,109,1)), color-stop(100%,rgba(48,58,81,1)));
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(77,87,109,1) 0%,rgba(48,58,81,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover,  rgba(77,87,109,1) 0%,rgba(48,58,81,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover,  rgba(77,87,109,1) 0%,rgba(48,58,81,1) 100%);
+    background: radial-gradient(ellipse at center,  rgba(77,87,109,1) 0%,rgba(48,58,81,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d576d', endColorstr='#303a51',GradientType=1 );
+}
+
+#disableEverything {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter:alpha(opacity=70);
+    -moz-opacity:0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;
+    z-index: 10000;
+}
+        
+.ui-button, ui-dialog-buttonset {
+    font-size: 0.7em;
+}
+
+#dialogsAndTemplates {
+    display: none;
+}
+
+#topControls {
+    position: absolute;
+    height: 80px;
+    top: 40px;
+    right: 50px;
+    left: 50px;
+}
+
+#apList {
+    position: absolute;
+    top: 110px;
+    bottom: 30px;
+    right: 50px;
+    left: 50px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #000;
+    background: rgb(63,63,63);
+    background: -moz-linear-gradient(top,  rgba(63,63,63,1) 0%, rgba(14,14,14,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(63,63,63,1)), color-stop(100%,rgba(14,14,14,1)));
+    background: -webkit-linear-gradient(top,  rgba(63,63,63,1) 0%,rgba(14,14,14,1) 100%);
+    background: -o-linear-gradient(top,  rgba(63,63,63,1) 0%,rgba(14,14,14,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(63,63,63,1) 0%,rgba(14,14,14,1) 100%);
+    background: linear-gradient(to bottom,  rgba(63,63,63,1) 0%,rgba(14,14,14,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f3f3f', endColorstr='#0e0e0e',GradientType=0 );
+}
+
+#underTrackBar {
+    margin-top: 8px;
+}
+
+#videoTimeInformation {
+    float: right;
+    font-family: 'CPMono_v07Plain';
+    font-weight: bold;
+}
+
+.listItem {
+    float:left;
+    width: 100%;
+    margin-bottom:5px;
+    font-family: 'LuxiSansRegular';
+    font-size: 0.9em;
+    border: solid 1px #000;
+    overflow: hidden;
+    height: 80px;
+    cursor:default;
+
+    color: #fff;
+    background: rgb(104,108,114);
+    background: -moz-linear-gradient(top,  rgba(104,108,114,1) 1%, rgba(24,34,38,1) 99%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(104,108,114,1)), color-stop(99%,rgba(24,34,38,1)));
+    background: -webkit-linear-gradient(top,  rgba(104,108,114,1) 1%,rgba(24,34,38,1) 99%);
+    background: -o-linear-gradient(top,  rgba(104,108,114,1) 1%,rgba(24,34,38,1) 99%);
+    background: -ms-linear-gradient(top,  rgba(104,108,114,1) 1%,rgba(24,34,38,1) 99%);
+    background: linear-gradient(to bottom,  rgba(104,108,114,1) 1%,rgba(24,34,38,1) 99%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#686c72', endColorstr='#182226',GradientType=0 );
+}
+
+.listItemSelected {
+    border: solid 1px #007;
+
+    background: rgb(104,108,161);
+    background: -moz-linear-gradient(top,  rgba(104,108,161,1) 2%, rgba(24,34,67,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(2%,rgba(104,108,161,1)), color-stop(100%,rgba(24,34,67,1)));
+    background: -webkit-linear-gradient(top,  rgba(104,108,161,1) 2%,rgba(24,34,67,1) 100%);
+    background: -o-linear-gradient(top,  rgba(104,108,161,1) 2%,rgba(24,34,67,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(104,108,161,1) 2%,rgba(24,34,67,1) 100%);
+    background: linear-gradient(to bottom,  rgba(104,108,161,1) 2%,rgba(24,34,67,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#686ca1', endColorstr='#182243',GradientType=0 );
+}
+
+.listItemControls {
+    margin-top: 4px;
+    margin-right: 4px;
+    float: right;
+}
+
+.controlDelete {
+    font-size: 0.1em;
+    width: 22px;
+    height: 20px;
+}
+
+.itemThumbnail {
+    float: left;
+    height: 80px;
+    width: 100px;
+    border-right: solid 1px #000;
+}
+
+.videoImage {
+    height: 80px;
+    width: 100px;
+}
+
+.itemDescription {
+    padding-left: 105px;
+    margin-left: 10px;
+    margin-top: 7px;
+}
+
+.videoTitle {
+    font-family: 'LuxiSansBold';
+    font-size: 1.2em;
+    margin-bottom: 2px;
+}
+
+.videoAuthor {
+    font-size: 70%;
+    margin-left: 5px;
+}
+
+.videoAddedBy {
+    font-size: 90%;
+}
+
+
+/* DIALOG */
+#addVideoDialog {
+    font-size: 0.85em;
+}
+
+#addVideoURL {
+    margin-top: 5px;
+    width:100%;
+}
+
+#addVideoConfirmButton {
+    float: right;
+}
+
+#addVideoLoading {
+    display: none;
+}
+
+#addVideoError {
+    font-weight: bold;
+    color: #f22;
+}

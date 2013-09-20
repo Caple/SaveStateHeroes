@@ -1,0 +1,55 @@
+﻿@font-face {
+    font-family: 'CPMono_v07Plain';
+    src: url('../fonts/CPMono_v07_Plain-webfont.eot');
+    src: url('../fonts/CPMono_v07_Plain-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/CPMono_v07_Plain-webfont.woff') format('woff'),
+         url('../fonts/CPMono_v07_Plain-webfont.ttf') format('truetype'),
+         url('../fonts/CPMono_v07_Plain-webfont.svg#CPMono_v07Plain') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LuxiSansRegular';
+    src: url('../fonts/luxisr-webfont.eot');
+    src: url('../fonts/luxisr-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/luxisr-webfont.woff') format('woff'),
+         url('../fonts/luxisr-webfont.ttf') format('truetype'),
+         url('../fonts/luxisr-webfont.svg#LuxiSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LuxiSansOblique';
+    src: url('../fonts/luxisri-webfont.eot');
+    src: url('../fonts/luxisri-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/luxisri-webfont.woff') format('woff'),
+         url('../fonts/luxisri-webfont.ttf') format('truetype'),
+         url('../fonts/luxisri-webfont.svg#LuxiSansOblique') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LuxiSansBold';
+    src: url('../fonts/luxisb-webfont.eot');
+    src: url('../fonts/luxisb-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/luxisb-webfont.woff') format('woff'),
+         url('../fonts/luxisb-webfont.ttf') format('truetype'),
+         url('../fonts/luxisb-webfont.svg#LuxiSansBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LuxiSansBoldOblique';
+    src: url('../fonts/luxisbi-webfont.eot');
+    src: url('../fonts/luxisbi-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/luxisbi-webfont.woff') format('woff'),
+         url('../fonts/luxisbi-webfont.ttf') format('truetype'),
+         url('../fonts/luxisbi-webfont.svg#LuxiSansBoldOblique') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+

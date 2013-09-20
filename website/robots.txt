@@ -1,0 +1,13 @@
+User-agent: *
+
+# view=print parameters
+Disallow: /forum/viewtopic.php?view=print&*
+Disallow: /forum/viewtopic.php?*&view=print&*
+Disallow: /forum/viewtopic.php?*&view=print$
+
+# urls containing sid
+Disallow: /forum/*?sid=*
+Disallow: /forum/*&sid=*
+
+# resolve soft 404 from google webmaster tools
+Disallow: forum/memberlist.php?mode=viewprofile&u=2
