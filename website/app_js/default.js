@@ -103,7 +103,7 @@ $(document).ready(function () {
             postLocalSystemMessage("server error; could not connect");
         });
 
-    $.connection.hub.error(function () {
+    $.connection.hub.error(function (error) {
         postLocalSystemMessage("connection error occurred");
     });
 

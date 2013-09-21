@@ -3,6 +3,7 @@ Imports System.Xml
 Imports MySql.Data.MySqlClient
 Imports UserSystem
 Imports Microsoft.AspNet.SignalR
+Imports Microsoft.AspNet.SignalR.Hubs
 
 Public Class AutopilotHub
     Inherits Hub

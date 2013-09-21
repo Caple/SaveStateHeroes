@@ -1,1 +1,0 @@
-﻿StreamProcessor.vb - Fixed bug where a streamer's name above video was sometimes replaced by a GUID.

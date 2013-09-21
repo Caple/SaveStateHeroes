@@ -10,7 +10,7 @@
         <link rel="stylesheet" type="text/css" href="/css/apply.css?v=9"/>
         <script type="text/javascript" src="/jslib/jquery-1.8.2.min.js"></script>
         <script type="text/javascript" src="/jslib/jquery-ui-1.9.1.min.js"></script>
-        <script type="text/javascript" src="/Scripts/jquery.signalR-1.1.3.min.js"></script>
+        <script type="text/javascript" src="/jslib/jquery.signalR-1.1.3.min.js"></script>
         <script type="text/javascript" src="/signalr/hubs"></script>
         <script type="text/javascript" src="/jslib/jquery.tipTip.min.js"></script>
         <script type="text/javascript" src="/jslib/timezone.min.js"></script>
