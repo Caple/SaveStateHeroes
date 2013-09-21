@@ -517,7 +517,7 @@ Public Class ChatCommands
                         caller.postErrorMessage("identifier matched 0 users")
                     End If
                 Else
-                    caller.postSystemMessage("usage: /flag flagName identifier")
+                    caller.postSystemMessage("usage: /postas identifier message")
                 End If
                 Return
             End If
