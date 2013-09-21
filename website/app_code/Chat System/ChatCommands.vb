@@ -512,7 +512,11 @@ Public Class ChatCommands
                     Dim newMessage As String = reconstructArgs(arguments, 1)
                     Dim matches As List(Of FrontPageUser) = Connections.matchUsers(Connections.frontPageUsers, arguments(0))
                     If matches.Count > 0 Then
-                        ChatProcessor.postNewMessage(matches(0), Nothing, ChatMessage.MessageType.Normal, newMessage)
+                        If newMessage.Substring(0, 1) = "/" Then
+                            processCommand(newMessage, matches(0))
+                        Else
+                            ChatProcessor.postNewMessage(matches(0), Nothing, ChatMessage.MessageType.Normal, newMessage)
+                        End If
                     Else
                         caller.postErrorMessage("identifier matched 0 users")
                     End If
