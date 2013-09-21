@@ -507,6 +507,21 @@ Public Class ChatCommands
 
         If caller.privileges.isDeveloper Then
 
+            If command = "postas" Then
+                If arguments.Count > 1 Then
+                    Dim newMessage As String = reconstructArgs(arguments, 1)
+                    Dim matches As List(Of FrontPageUser) = Connections.matchUsers(Connections.frontPageUsers, arguments(0))
+                    If matches.Count > 0 Then
+                        ChatProcessor.postNewMessage(matches(0), Nothing, ChatMessage.MessageType.Normal, newMessage)
+                    Else
+                        caller.postErrorMessage("identifier matched 0 users")
+                    End If
+                Else
+                    caller.postSystemMessage("usage: /flag flagName identifier")
+                End If
+                Return
+            End If
+
             If command = "pushmaintenance" Then
                 Try
                     ChatProcessor.postNewMessage(Nothing, Nothing, ChatMessage.MessageType.ModAction, "server going down for maintenance")
@@ -577,6 +592,7 @@ Public Class ChatCommands
                 Return
             End If
 
+            availableCommands.Append(" postas")
             availableCommands.Append(" pushmaintenance")
             availableCommands.Append(" pushupdate")
             availableCommands.Append(" refreshbrowsers")
