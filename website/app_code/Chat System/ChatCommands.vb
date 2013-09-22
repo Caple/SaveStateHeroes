@@ -2,6 +2,7 @@
 Imports System.Management
 Imports UserSystem
 Imports MySql.Data.MySqlClient
+Imports System.Diagnostics
 
 Public Class ChatCommands
 
@@ -210,8 +211,8 @@ Public Class ChatCommands
             availableCommands.Append(" page")
 
 
-			
-			
+
+
             If command = "addbumper" Then
                 If arguments.Count > 0 Then
                     Dim match As String = reconstructArgs(arguments, 0)
@@ -221,11 +222,11 @@ Public Class ChatCommands
                         Return
                     End If
                     For Each user As OfflineUser In users
-                      '  If (user.privileges.isOfficer OrElse user.privileges.canModChat) Then
-                          '  caller.postErrorMessage("You can not target an officer or mod with this command.")
-                          '  Return
-                     '   Else
-						If (user.privileges.isBumper) Then
+                        '  If (user.privileges.isOfficer OrElse user.privileges.canModChat) Then
+                        '  caller.postErrorMessage("You can not target an officer or mod with this command.")
+                        '  Return
+                        '   Else
+                        If (user.privileges.isBumper) Then
                             caller.postErrorMessage("This user is already a bumper.")
                             Return
                         ElseIf (Not user.isBoundToAccount) Then
@@ -539,18 +540,17 @@ Public Class ChatCommands
                 Return
             End If
 
-            If command = "pushupdate" Then
-                If arguments.Count > 0 Then
-                    ServerPersistance.setField("patchNotesLink", reconstructArgs(arguments, 0))
-                    ServerPersistance.setField("updated", True)
-                    For Each user As FrontPageUser In Connections.frontPageUsers.ToList
-                        user.client.initiateRefresh(2000)
-                    Next
-                    IO.File.Copy(Utils.serverPath & "app_update", Utils.serverPath & "app_offline.htm")
-                Else
-                    caller.postSystemMessage("usage: /pushupdate patchNotesLink")
-                End If
-
+            If command = "update" Then
+                ServerPersistance.setField("updated", True)
+                For Each user As FrontPageUser In Connections.frontPageUsers.ToList
+                    user.client.initiateRefresh(10)
+                Next
+                Dim Update As New Process
+                Update.StartInfo.UseShellExecute = True
+                Update.StartInfo.WorkingDirectory = HttpContext.Current.Server.MapPath("~")
+                Update.StartInfo.FileName = "update.bat"
+                Update.StartInfo.WindowStyle = ProcessWindowStyle.Normal
+                Update.Start()
                 Return
             End If
 
@@ -742,13 +742,13 @@ Public Class ChatCommands
                         builder.Append("<br />Display Name: " & guestUser.displayName)
                         builder.Append("<br />IP Address: " & guestUser.ipAddress)
                     End If
-					'may need to re-use this code at some point in the future maybe.
-                  '  For Each account As AccountDetails In Accounts.matchIoGAccounts(match)
-                   '     builder.Append("<br />----------------------------------------")
-                   '     builder.Append("<br />[IoG DB Record] : " & account.username)
-                   '     builder.Append("<br />Name: " & account.username)
-                   '     builder.Append("<br />IP Address: " & account.ipAddress)
-                   ' Next
+                    'may need to re-use this code at some point in the future maybe.
+                    '  For Each account As AccountDetails In Accounts.matchIoGAccounts(match)
+                    '     builder.Append("<br />----------------------------------------")
+                    '     builder.Append("<br />[IoG DB Record] : " & account.username)
+                    '     builder.Append("<br />Name: " & account.username)
+                    '     builder.Append("<br />IP Address: " & account.ipAddress)
+                    ' Next
                     caller.postSystemMessage(builder.ToString)
                 Else
                     caller.postSystemMessage("usage: /" + command + " identifier")
@@ -887,40 +887,40 @@ Public Class ChatCommands
         End If
         availableCommands.Append(" skip")
 
-					If command = "jason" Then
-			If arguments.Count > 0 Then
-			caller.postSystemMessage("usage: use /jason")
-			Else
-			caller.postSystemMessage("JASON!")
-			caller.TryJason(caller)
-			End If
-			Return
-			End If
-			availableCommands.Append(" jason")
-		
-							If command = "slam" Then
-			If arguments.Count > 0 Then
-			caller.postSystemMessage("usage: use /slam")
-			Else
-			caller.postSystemMessage("Hey You Whatcha Gonna Do!")
-			caller.TrySlam(caller)
-			End If
-			Return
-			End If
-			availableCommands.Append(" Slam")
-			
-			If command = "austin" Then
-			If arguments.Count > 0 Then
-			caller.postSystemMessage("usage: use /slam")
-			Else
-			caller.postSystemMessage("IT'S ME AUSTIN!")
-			caller.TryAustin(caller)
-			End If
-			Return
-			End If
-			availableCommands.Append(" austin")
-		
-		
+        If command = "jason" Then
+            If arguments.Count > 0 Then
+                caller.postSystemMessage("usage: use /jason")
+            Else
+                caller.postSystemMessage("JASON!")
+                caller.TryJason(caller)
+            End If
+            Return
+        End If
+        availableCommands.Append(" jason")
+
+        If command = "slam" Then
+            If arguments.Count > 0 Then
+                caller.postSystemMessage("usage: use /slam")
+            Else
+                caller.postSystemMessage("Hey You Whatcha Gonna Do!")
+                caller.TrySlam(caller)
+            End If
+            Return
+        End If
+        availableCommands.Append(" Slam")
+
+        If command = "austin" Then
+            If arguments.Count > 0 Then
+                caller.postSystemMessage("usage: use /slam")
+            Else
+                caller.postSystemMessage("IT'S ME AUSTIN!")
+                caller.TryAustin(caller)
+            End If
+            Return
+        End If
+        availableCommands.Append(" austin")
+
+
         If command = "clear" Then
             caller.client.clearChat()
             Return
@@ -937,7 +937,7 @@ Public Class ChatCommands
             If caller.privileges.canModChat Or caller.privileges.isStreamer Or caller.name = ("garhor") Then
                 caller.enableNoVideoMode()
             Else
-               caller.postErrorMessage("Must be mod or streaming to use /novideo.")
+                caller.postErrorMessage("Must be mod or streaming to use /novideo.")
             End If
             Return
         End If
@@ -1010,8 +1010,8 @@ Public Class ChatCommands
             caller.postSystemMessage("IQ lowering complete.")
             Return
         End If
-'command = "debug" OrElse command = "scg" OrElse
-        If  command = "banme" Then
+        'command = "debug" OrElse command = "scg" OrElse
+        If command = "banme" Then
             Infractions.add("ban", caller.ipAddress, 140, "self ban joke command", caller)
             Infractions.add("ban", caller.name, 140, "self ban joke command", caller)
             caller.refreshBrowser()

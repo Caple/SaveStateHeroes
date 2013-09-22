@@ -23,9 +23,7 @@
         If ServerPersistance.getField("updated") = True Then
             ServerPersistance.setField("updated", False)
             ServerPersistance.save()
-            ChatProcessor.postNewMessage(Nothing, Nothing, ChatMessage.MessageType.NotificationRawHTML, "Server updated. " &
-                                         "<span style='font-size: 80%;'>[<a href='" &
-                                         ServerPersistance.getField("patchNotesLink") & "' target='_blank'>Patch Notes</a>]</span>")
+            ChatProcessor.postNewMessage(Nothing, Nothing, ChatMessage.MessageType.NotificationRawHTML, "update complete")
         End If
     End Sub
 
