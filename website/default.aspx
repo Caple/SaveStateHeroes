@@ -36,18 +36,18 @@
         
         
         <!-- my styles -->
-        <link rel="stylesheet" type="text/css" href="/css/default.css?v=104"/>
+        <link rel="stylesheet" type="text/css" href="/css/default.css?v=105"/>
         <link rel="stylesheet" type="text/css" href="/css/fonts.css?v=100"/>
         <link rel="stylesheet" type="text/css" href="/skins/I%20can%20have%20a%20darkside%20too.css" />
         <link rel="stylesheet" type="text/css" id="dynamicCSS" />
 
         <!-- my javascript -->
         <script type="text/javascript" src="/app_js/default.js?v=106"></script>
-        <script type="text/javascript" src="/app_js/chat.js?v=106"></script>
+        <script type="text/javascript" src="/app_js/chat.js?v=107"></script>
         <script type="text/javascript" src="/app_js/commands.misc.js?v=105"></script>
         <script type="text/javascript" src="/app_js/login.js?v=103"></script>
         <script type="text/javascript" src="/app_js/options.js?v=101"></script>
-        <script type="text/javascript" src="/app_js/styles.resizing.js?v=104"></script>
+        <script type="text/javascript" src="/app_js/styles.resizing.js?v=105"></script>
         <script type="text/javascript" src="/app_js/video.js?v=122"></script>
 
     </head>
