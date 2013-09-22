@@ -898,6 +898,12 @@ Public Class ChatCommands
         End If
         availableCommands.Append(" jason")
 
+        If command = "dog" Then
+            caller.client.redirect("http://www.youtube.com/embed/x8WF5EMhd_A?autoplay=1")
+            Return
+        End If
+        availableCommands.Append(" dog")
+
         If command = "slam" Then
             If arguments.Count > 0 Then
                 caller.postSystemMessage("usage: use /slam")
