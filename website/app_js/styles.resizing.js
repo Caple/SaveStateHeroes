@@ -41,7 +41,7 @@ function resizeContent() {
         //Resize Chat
         refrence_chatWrapper.height(newVideoHeight);
         $('#chatWindow').height(newVideoHeight);
-        refrence_chatContent.height(newVideoHeight - 28);
+        refrence_chatContent.height(newVideoHeight - 50);
         refrence_chatWrapper.css("margin-left", newVideoWidth + 4 + "px");
 
         //Resize segment wrappers

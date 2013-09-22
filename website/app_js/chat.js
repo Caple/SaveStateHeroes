@@ -11,6 +11,15 @@ $.contextMenu.theme = 'xp';
 
 $(document).ready(function () {
 
+    $(".bbButton").button();
+
+    $('#bbBold').click(function () { addBBCode("b", true); });
+    $('#bbItallic').click(function () { addBBCode("i", true); });
+    $('#bbUnderline').click(function () { addBBCode("u", true); });
+    $('#bbStrikethrough').click(function () { addBBCode("s", true); });
+    $('#bbSpoiler').click(function () { addBBCode("spoiler", true); });
+    $('#bbRainbow').click(function () { addBBCode("rainbow", true); });
+
     $("#userListWindow").dialog({
         autoOpen: false,
         width: 400,
@@ -152,6 +161,38 @@ $(document).ready(function () {
     refreshTimestamps();
 });
 
+function addBBCode(bbCode, requiresClosingTag) {
+    var txtarea = $('#chatTextEntry')[0]
+    if (txtarea.selectionEnd > 0) {
+        if (requiresClosingTag) {
+            $(txtarea).val(
+                  $(txtarea).val().substring(0, txtarea.selectionStart) +
+                  "[" + bbCode + "]" +
+                  $(txtarea).val().substring(txtarea.selectionStart, txtarea.selectionEnd) +
+                  "[/" + bbCode + "]" +
+                  $(txtarea).val().substring(txtarea.selectionEnd)
+             );
+        } else {
+            $(txtarea).val(
+                  $(txtarea).val().substring(0, txtarea.selectionStart) +
+                  "[" + bbCode + "]" +
+                  $(txtarea).val().substring(txtarea.selectionEnd)
+             );
+        }
+    } else {
+        if (requiresClosingTag) {
+            $(txtarea).val(
+                $(txtarea).val() + "[" + bbCode + "]" + "[/" + bbCode + "]"
+            );
+        } else {
+            $(txtarea).val(
+                $(txtarea).val() + "[" + bbCode + "]"
+            );
+        }
+    }
+
+
+}
 
 function refreshTimestamps() {
     var shouldAutoScroll = autoScrollNeeded();

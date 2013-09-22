@@ -140,6 +140,16 @@
                 <div id="chatControlContainer">
                     <div id="usersOnlineCount" class=""><span id="userCount">?</span> user<span id="userCountPlural">s</span> online</div>
                     <div id="chatContent"></div>
+                    <div id="chatStyles">
+                        <div class="bbButton" id="bbBold"><b>B</b></div>
+                        <div class="bbButton" id="bbItallic"><i>I</i></div>
+                        <div class="bbButton" id="bbUnderline"><u>U</u></div>
+                        <div class="bbButton" id="bbStrikethrough"><s>abc</s></div>
+                        <div class="bbButton" id="bbSpoiler" style="color: #AAA;">Spoiler</div>
+                        <div class="bbButton" id="bbRainbow">
+                            <span style="color: #FF0000">-</span><span style="color: #FFFB00">-</span><span style="color: #07FF00">-</span><span style="color: #00FFF4">-</span><span style="color: #000EFF">-</span><span style="color: #ED00FF">-</span><span style="color: #FF0015">-</span>
+                        </div>
+                    </div>
                     <input type="text" id="chatTextEntry" value="connecting to server..." disabled="disabled" x-webkit-speech />
                 </div>
             </div>

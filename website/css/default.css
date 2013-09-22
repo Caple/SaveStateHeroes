@@ -160,6 +160,35 @@ td {
     font-size: .95em;
 }
 
+#chatStyles {
+    width: 100%;
+    height: 28px;
+    background-color: #000;
+    color: #A0A0A0;
+    padding-top: 3px;
+    padding-bottom: 1px;
+    margin: 0;
+    position:absolute;
+    bottom:15px;
+    font-family: 'LuxiSansRegular';
+    border-top:1px solid #444;
+}
+
+.bbButton {
+    float: left;
+    font-size: 0.7em;
+    margin-left: 2px;
+    margin-right: 1px;
+}
+
+.bbButton > .ui-button-text {
+    padding: 0 5px 0 5px;
+}
+
+.bbButton.ui-corner-all {
+    border-radius: 0.1em 0.1em 0.1em 0.1em;
+}
+
 #chatTextEntry {
     width: 97%;
     height: 14px;
