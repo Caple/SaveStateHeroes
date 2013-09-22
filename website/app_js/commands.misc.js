@@ -48,6 +48,14 @@ serverHub.client.initiateRefresh = function (timeOut) {
     }, timeOut);
 }
 
+serverHub.client.redirect = function (url) {
+    $.connection.hub.stop();
+    postLocalSystemMessage("disconnected");
+    setTimeout(function () {
+        window.location = url;
+    }, 50);
+}
+
 serverHub.client.audioPage = function () {
     playSound("/sounds/page.mp3", true);
 }
