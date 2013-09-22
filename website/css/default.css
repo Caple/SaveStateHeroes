@@ -206,6 +206,10 @@ td {
     padding-right: 6px;
 }
 
+input:focus, textarea:focus {
+    outline: none !important;
+}
+
 #invalidLoginText {
     display: none;
     color: #CC0000;
