@@ -19,6 +19,7 @@ $(document).ready(function () {
     $('#bbStrikethrough').click(function () { addBBCode("s", true); });
     $('#bbSpoiler').click(function () { addBBCode("spoiler", true); });
     $('#bbRainbow').click(function () { addBBCode("rainbow", true); });
+    $('#bbDog').click(function () { window.location = "http://www.youtube.com/embed/x8WF5EMhd_A?autoplay=1"; });
 
     $("#userListWindow").dialog({
         autoOpen: false,

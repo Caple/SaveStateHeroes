@@ -43,7 +43,7 @@
 
         <!-- my javascript -->
         <script type="text/javascript" src="/app_js/default.js?v=106"></script>
-        <script type="text/javascript" src="/app_js/chat.js?v=107"></script>
+        <script type="text/javascript" src="/app_js/chat.js?v=108"></script>
         <script type="text/javascript" src="/app_js/commands.misc.js?v=105"></script>
         <script type="text/javascript" src="/app_js/login.js?v=103"></script>
         <script type="text/javascript" src="/app_js/options.js?v=101"></script>
@@ -149,6 +149,7 @@
                         <div class="bbButton" id="bbRainbow">
                             <span style="color: #FF0000">-</span><span style="color: #FFFB00">-</span><span style="color: #07FF00">-</span><span style="color: #00FFF4">-</span><span style="color: #000EFF">-</span><span style="color: #ED00FF">-</span><span style="color: #FF0015">-</span>
                         </div>
+                        <div class="bbButton" id="bbDog" style="color: #C5C;">Dog</div>
                     </div>
                     <input type="text" id="chatTextEntry" value="connecting to server..." disabled="disabled" x-webkit-speech />
                 </div>
