@@ -59,7 +59,7 @@ function resizeContent() {
 
         $('#chatWrapper').height(chatHeight);
         $('#chatWindow').height(chatHeight);
-        $("#chatContent").height(chatHeight - 28);
+        $("#chatContent").height(chatHeight - 50);
 
         var newContainerWidth = $('#chatWrapper').width();
         $('#pageTop').width(newContainerWidth);

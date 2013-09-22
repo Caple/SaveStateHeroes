@@ -47,7 +47,7 @@
         <script type="text/javascript" src="/app_js/commands.misc.js?v=105"></script>
         <script type="text/javascript" src="/app_js/login.js?v=103"></script>
         <script type="text/javascript" src="/app_js/options.js?v=101"></script>
-        <script type="text/javascript" src="/app_js/styles.resizing.js?v=105"></script>
+        <script type="text/javascript" src="/app_js/styles.resizing.js?v=106"></script>
         <script type="text/javascript" src="/app_js/video.js?v=122"></script>
 
     </head>
