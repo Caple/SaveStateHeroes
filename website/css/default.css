@@ -201,6 +201,9 @@ td {
     bottom:0;
     font-family: 'LuxiSansRegular';
     font-size: 0.9em;
+    border: none;
+    border-top: 1px solid rgb(68, 68, 68);
+    padding-right: 6px;
 }
 
 #invalidLoginText {

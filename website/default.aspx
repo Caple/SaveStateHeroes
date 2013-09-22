@@ -36,7 +36,7 @@
         
         
         <!-- my styles -->
-        <link rel="stylesheet" type="text/css" href="/css/default.css?v=105"/>
+        <link rel="stylesheet" type="text/css" href="/css/default.css?v=106"/>
         <link rel="stylesheet" type="text/css" href="/css/fonts.css?v=100"/>
         <link rel="stylesheet" type="text/css" href="/skins/I%20can%20have%20a%20darkside%20too.css" />
         <link rel="stylesheet" type="text/css" id="dynamicCSS" />
