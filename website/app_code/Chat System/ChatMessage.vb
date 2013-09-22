@@ -550,6 +550,8 @@ Public Class ChatMessage
                 Return "<i>" & innerText & "</i>"
             Case "u"
                 Return "<u>" & innerText & "</u>"
+            Case "s"
+                Return "<s>" & innerText & "</s>"
             Case "spoiler"
                 Return "<span class='spoilerBox'>Spoiler<span class='spoilerHidden'>" & innerText & "</span></span>"
             Case "color"
