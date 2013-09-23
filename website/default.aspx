@@ -33,20 +33,7 @@
         <script type="text/javascript" src="/jslib/uuid.core.js"></script>
         <script type="text/javascript" src="/jslib/evercookie-0.4/evercookie.js"></script>
         <script type="text/javascript" src="/signalr/hubs"></script>
-		<link href="/jslib/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
-		<script src="/jslib/perfectscroll/jquery.mousewheel.js"></script>
-		<script src="/jslib/perfectscroll/perfect-scrollbar.js"></script>
-		<style>
-        .contentHolder { position:relative; margin:0px auto; padding:0px; width: 600px; height: 400px; overflow: hidden; }
-        .contentHolder .content { background-image: url('/jslib/perfectscroll/azusa.jpg'); width: 1280px; height: 720px; }
-        .spacer { text-align:center }
-		</style>
-    <script>
-      jQuery(document).ready(function ($) {
-        "use strict";
-        $('#chatContent').perfectScrollbar();
-      });
-    </script>
+
         
         
         <!-- my styles -->
