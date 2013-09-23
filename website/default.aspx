@@ -36,17 +36,12 @@
   		<link href="/jslib/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
 		<script src="/jslib/perfectscroll/jquery.mousewheel.js"></script>
 		<script src="/jslib/perfectscroll/perfect-scrollbar.js"></script>
-		<style>
-        .contentHolder { position:relative; margin:0px auto; padding:0px; width: 600px; height: 400px; overflow: hidden; }
-        .contentHolder .content { background-image: url('/jslib/perfectscroll/azusa.jpg'); width: 1280px; height: 720px; }
-        .spacer { text-align:center }
-		</style>
-    <script>
-      jQuery(document).ready(function ($) {
+		<script>
+		jQuery(document).ready(function ($) {
         "use strict";
         $('#chatContent').perfectScrollbar();
-      });
-    </script>      
+		});
+		</script>      
         
         <!-- my styles -->
         <link rel="stylesheet" type="text/css" href="/css/default.css?v=106"/>
