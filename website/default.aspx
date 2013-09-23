@@ -27,27 +27,41 @@
         <script type="text/javascript" src="/jslib/jquery.idle-timer.js"></script>
         <script type="text/javascript" src="/jslib/jquery.cookie.js"></script>
         <script type="text/javascript" src="/jslib/jquery.columnizer.js"></script>
-        <script type="text/javascript" src="/jslib/jquery.signalR-1.1.3.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery.signalR-1.1.3.min.js"></script>
         <script type="text/javascript" src="/jslib/flowplayer-3.2.12.min.js" ></script>
         <script type="text/javascript" src="/jslib/swfobject.js"></script>
         <script type="text/javascript" src="/jslib/uuid.core.js"></script>
         <script type="text/javascript" src="/jslib/evercookie-0.4/evercookie.js"></script>
         <script type="text/javascript" src="/signalr/hubs"></script>
+		<link href="/jslib/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
+		<script src="/jslib/perfectscroll/jquery.mousewheel.js"></script>
+		<script src="/jslib/perfectscroll/perfect-scrollbar.js"></script>
+		<style>
+        .contentHolder { position:relative; margin:0px auto; padding:0px; width: 600px; height: 400px; overflow: hidden; }
+        .contentHolder .content { background-image: url('/jslib/perfectscroll/azusa.jpg'); width: 1280px; height: 720px; }
+        .spacer { text-align:center }
+		</style>
+    <script>
+      jQuery(document).ready(function ($) {
+        "use strict";
+        $('#chatContent').perfectScrollbar();
+      });
+    </script>
         
         
         <!-- my styles -->
-        <link rel="stylesheet" type="text/css" href="/css/default.css?v=106"/>
+        <link rel="stylesheet" type="text/css" href="/css/default.css?v=104"/>
         <link rel="stylesheet" type="text/css" href="/css/fonts.css?v=100"/>
         <link rel="stylesheet" type="text/css" href="/skins/I%20can%20have%20a%20darkside%20too.css" />
         <link rel="stylesheet" type="text/css" id="dynamicCSS" />
 
         <!-- my javascript -->
         <script type="text/javascript" src="/app_js/default.js?v=106"></script>
-        <script type="text/javascript" src="/app_js/chat.js?v=108"></script>
+        <script type="text/javascript" src="/app_js/chat.js?v=106"></script>
         <script type="text/javascript" src="/app_js/commands.misc.js?v=105"></script>
         <script type="text/javascript" src="/app_js/login.js?v=103"></script>
         <script type="text/javascript" src="/app_js/options.js?v=101"></script>
-        <script type="text/javascript" src="/app_js/styles.resizing.js?v=106"></script>
+        <script type="text/javascript" src="/app_js/styles.resizing.js?v=104"></script>
         <script type="text/javascript" src="/app_js/video.js?v=122"></script>
 
     </head>
@@ -80,16 +94,12 @@
                 </div>
                 <div id="socialNav">
                     <div style="float:right; margin-left: 8px; margin-right: 0;">
-                        	
-
-   		 	
-
-    			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-    			<input type="hidden" name="cmd" value="_s-xclick">
-    			<input type="hidden" name="hosted_button_id" value="VJY6LLZMKNRDQ">
-    			<input type="image" src="http://i.imgur.com/2sYn3Xz.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-    			<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-    		</form>
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="width: 78px;">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="396EU3REZL54Y">
+                            <input type="image" src="/images/donate.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                        </form>
                     </div>
                      <div style="float:right; margin-left: 8px;">
                         <a href="http://steamcommunity.com/groups/savestateheroes" target="_blank">
@@ -140,17 +150,6 @@
                 <div id="chatControlContainer">
                     <div id="usersOnlineCount" class=""><span id="userCount">?</span> user<span id="userCountPlural">s</span> online</div>
                     <div id="chatContent"></div>
-                    <div id="chatStyles">
-                        <div class="bbButton" id="bbBold"><b>B</b></div>
-                        <div class="bbButton" id="bbItallic"><i>I</i></div>
-                        <div class="bbButton" id="bbUnderline"><u>U</u></div>
-                        <div class="bbButton" id="bbStrikethrough"><s>abc</s></div>
-                        <div class="bbButton" id="bbSpoiler" style="color: #AAA;">Spoiler</div>
-                        <div class="bbButton" id="bbRainbow">
-                            <span style="color: #FF0000">-</span><span style="color: #FFFB00">-</span><span style="color: #07FF00">-</span><span style="color: #00FFF4">-</span><span style="color: #000EFF">-</span><span style="color: #ED00FF">-</span><span style="color: #FF0015">-</span>
-                        </div>
-                        <div class="bbButton" id="bbDog" style="color: #C5C;">Dog</div>
-                    </div>
                     <input type="text" id="chatTextEntry" value="connecting to server..." disabled="disabled" x-webkit-speech />
                 </div>
             </div>
