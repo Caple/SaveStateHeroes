@@ -33,16 +33,7 @@
         <script type="text/javascript" src="/jslib/uuid.core.js"></script>
         <script type="text/javascript" src="/jslib/evercookie-0.4/evercookie.js"></script>
         <script type="text/javascript" src="/signalr/hubs"></script>
-  		<link href="/jslib/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
-		<script src="/jslib/perfectscroll/jquery.mousewheel.js"></script>
-		<script src="/jslib/perfectscroll/perfect-scrollbar.js"></script>
-		<script>
-		jQuery(document).ready(function ($) {
-        "use strict";
-        $('#chatContent').perfectScrollbar();
-		});
-		</script>      
-        
+
         <!-- my styles -->
         <link rel="stylesheet" type="text/css" href="/css/default.css?v=106"/>
         <link rel="stylesheet" type="text/css" href="/css/fonts.css?v=100"/>
