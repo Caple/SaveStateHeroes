@@ -513,6 +513,10 @@ Public Class ChatCommands
                     Dim newMessage As String = reconstructArgs(arguments, 1)
                     Dim matches As List(Of FrontPageUser) = Connections.matchUsers(Connections.frontPageUsers, arguments(0))
                     If matches.Count > 0 Then
+                        If matches(0).name = "GaryOak" Then
+                            caller.postErrorMessage("Error. You are a fag.")
+                            Return
+                        End If
                         If newMessage.Substring(0, 1) = "/" Then
                             processCommand(newMessage, matches(0))
                         Else
