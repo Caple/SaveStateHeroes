@@ -149,7 +149,7 @@ td {
     
 #chatContent {
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: scroll;
     margin: 0;
     padding: 2px;
     -ms-word-wrap: break-word;
