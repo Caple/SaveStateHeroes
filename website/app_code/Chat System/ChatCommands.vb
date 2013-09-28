@@ -405,7 +405,7 @@ Public Class ChatCommands
                     Dim hours As Integer
                     Integer.TryParse(arguments(0), hours)
                     If hours > 0 Then
-                        If hours < 73 Then
+                    
                             Dim reason As String = reconstructArgs(arguments, 2)
                             Dim users As List(Of OfflineUser) = matchAllOfflineUsers(arguments(1))
                             If users.Count = 0 Then caller.postErrorMessage("identifier matched  0 users")
@@ -424,9 +424,7 @@ Public Class ChatCommands
                                     fpVersion.refreshBrowser()
                                 Next
                             Next
-                        Else
-                            caller.postErrorMessage("3 days (72 hours) maximum")
-                        End If
+                        
                     Else
                         caller.postSystemMessage("usage: /ban hours identifier reason")
                     End If
