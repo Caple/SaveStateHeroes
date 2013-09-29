@@ -386,6 +386,14 @@ Public Class ChatMessage
 				sendingUser.TrySlam(sendingUser)
 				innerHTML &= " I got dunked"
 			End If
+			
+			If sendingUser.isFlagSet("nocaps") Then
+				innerHTML = innerHTML.ToLower
+			End If
+			
+			If sendingUser.isFlagSet("allcaps") Then
+				innerHTML = innerHTML.ToUpper
+			End If
 
       '      If rand.NextDouble.CompareTo(0.8D) > 0 Then
        '         innerHTML = "[color=C71585]Sasu [color=FFFFFF]x[/color] Naru[/color] [color=FF0044]is love[/color] [color=FF0000]<3[/color]"
