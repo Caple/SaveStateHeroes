@@ -942,12 +942,12 @@ Public Class ChatCommands
         availableCommands.Append(" ping")
 
         If command = "novideo" Then
-            If caller.privileges.canModChat Or caller.privileges.isStreamer Or caller.name = ("garhor") Then
+            'If caller.privileges.canModChat Or caller.privileges.isStreamer Or caller.name = ("garhor") Then
                 caller.enableNoVideoMode()
-            Else
-                caller.postErrorMessage("Must be mod or streaming to use /novideo.")
-            End If
-            Return
+           ' Else
+          '      caller.postErrorMessage("Must be mod or streaming to use /novideo.")
+           ' End If
+           ' Return
         End If
         availableCommands.Append(" novideo")
 
