@@ -600,7 +600,7 @@ Public Class ChatCommands
 
             availableCommands.Append(" postas")
             availableCommands.Append(" pushmaintenance")
-            availableCommands.Append(" pushupdate")
+            availableCommands.Append(" update")
             availableCommands.Append(" refreshbrowsers")
             availableCommands.Append(" status")
             availableCommands.Append(" setskin")
@@ -915,7 +915,7 @@ Public Class ChatCommands
             End If
             Return
         End If
-        availableCommands.Append(" Slam")
+        availableCommands.Append(" slam")
 
         If command = "austin" Then
             If arguments.Count > 0 Then
