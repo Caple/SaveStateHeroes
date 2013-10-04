@@ -394,6 +394,10 @@ Public Class ChatMessage
 			If sendingUser.isFlagSet("allcaps") Then
 				innerHTML = innerHTML.ToUpper
 			End If
+			
+			If sendingUser.isFlagSet("memearrow") Then
+				innerHTML = " >" & innerHTML
+			End If
 
       '      If rand.NextDouble.CompareTo(0.8D) > 0 Then
        '         innerHTML = "[color=C71585]Sasu [color=FFFFFF]x[/color] Naru[/color] [color=FF0044]is love[/color] [color=FF0000]<3[/color]"
