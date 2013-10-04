@@ -396,7 +396,7 @@ Public Class ChatMessage
 			End If
 			
 			If sendingUser.isFlagSet("memearrow") Then
-				innerHTML = ">" &innerHTML
+				innerHTML = ">"&innerHTML
 			End If
 
       '      If rand.NextDouble.CompareTo(0.8D) > 0 Then
