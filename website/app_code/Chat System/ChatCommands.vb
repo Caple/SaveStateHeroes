@@ -905,6 +905,12 @@ Public Class ChatCommands
             Return
         End If
         availableCommands.Append(" dog")
+        
+        If command = "duane" Then
+            caller.client.redirect("http://www.youtube.com/embed/ItQKcKnfkIg?autoplay=1")
+            Return
+        End if
+        availableCommands.Append(" duane")
 
         If command = "slam" Then
             If arguments.Count > 0 Then
