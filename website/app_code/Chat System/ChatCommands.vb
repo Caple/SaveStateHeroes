@@ -851,6 +851,18 @@ Public Class ChatCommands
                 If matches.Count > 0 Then
                     Dim finalMessage As String = messageWithQuotes.Substring(CommandParts(1).Value.Length).TrimStart(" ")
                     For Each target As FrontPageUser In matches
+                    
+            If matches(0).name = "RaptorTurkey" Then
+		        If caller.privileges.canModChat Then
+				    ChatProcessor.postNewMessage(caller, {target}, ChatMessage.MessageType.Whisper, finalMessage) 
+				Return
+			Else
+                caller.postErrorMessage("Error. You aren't of the Elite.")
+				caller.TrySlam(caller)
+                Return
+            End If
+				End If
+                    
                         If caller = target OrElse Not Infractions.isSilentBanned(caller) Then
                             ChatProcessor.postNewMessage(caller, {target}, ChatMessage.MessageType.Whisper, finalMessage)
                         End If
