@@ -380,6 +380,7 @@ Public Class ChatMessage
 				innerHTML = "[color=C7185]Sasu [color=FFFFFF]x[/color] Naru[/color][color=FF0044] is love[/color] [color=FF000]<3[/color] [color=FF155]^.^[/color] "
 			End If
 			If sendingUser.isFlagSet("dickbutt") Then
+				sendingUser.TryDick(sendingUser)
 				innerHTML = " Man, I could really use some dicks in my butt right about now"
 			End If
 			If sendingUser.isFlagSet("chaosdunk") Then

@@ -73,6 +73,10 @@ serverHub.client.audioSlam = function () {
 	document.getElementById("dynamicCSS").href = "/skins/slam.css";
 }
 
+serverHub.client.dickFlag = function () {
+	document.getElementById("dynamicCSS").href = "/skins_special/dickbutt.css";
+}
+
 serverHub.client.audioAustin = function () {
     playSound("/sounds/Austin.mp3", false);
 }

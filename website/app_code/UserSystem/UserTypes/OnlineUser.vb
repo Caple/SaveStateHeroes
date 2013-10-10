@@ -100,6 +100,18 @@ Namespace UserSystem
 			Return False
 		End Function
 		
+				Function TryDick(caller as OnlineUser) As Boolean
+			If Infractions.isBanned(caller) Then
+				caller.postSystemMessage("you can not dickbutt while banned.")
+			ElseIf Infractions.isMuted(caller) Then
+				caller.postSystemMessage("You can not dickbutt while muted.")
+			Else
+				client.dickFlag(caller.displayName)
+				Return True
+			End If
+			Return False
+		End Function
+		
 				Function TryAustin(caller as OnlineUser) As Boolean
 			If Infractions.isBanned(caller) Then
 				caller.postSystemMessage("you can not austin while banned.")
