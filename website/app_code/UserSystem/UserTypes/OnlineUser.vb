@@ -76,6 +76,22 @@ Namespace UserSystem
             Return False
         End Function
 
+		        Function TrySXN(caller As OnlineUser) As Boolean
+            If Infractions.isBanned(caller) Then
+                caller.postSystemMessage("You can not do this while banned.")
+            ElseIf Infractions.isMuted(caller) Then
+                caller.postSystemMessage("You can not do this while muted.")
+            ElseIf StreamProcessor.streamer = Me Then
+                caller.postSystemMessage("You can not do this to a user who is streaming.")
+            Else
+                caller.postSystemMessage(displayName & " has been smitten.")
+                postSystemMessage("You have smitten by " & caller.displayName & ".")
+                client.audioSXN(caller.displayName)
+                Return True
+            End If
+            Return False
+        End Function
+		
 		Function TryJason(caller as OnlineUser) As Boolean
 			If Infractions.isBanned(caller) Then
 				caller.postSystemMessage("you can not jason while banned.")

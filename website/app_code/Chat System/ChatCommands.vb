@@ -209,6 +209,23 @@ Public Class ChatCommands
                 Return
             End If
             availableCommands.Append(" page")
+			
+			            If command = "sasuxnaru" Then
+                If arguments.Count > 0 Then
+                    Dim matchText As String = reconstructArgs(arguments, 0)
+                    Dim targetFound As Boolean
+                    For Each target As FrontPageUser In Connections.matchUsers(Connections.frontPageUsers, matchText)
+                        target.TrySXN(caller)
+                        targetFound = True
+                    Next
+                    If Not targetFound Then
+                        caller.postErrorMessage("identifier matched 0 users")
+                    End If
+                Else
+                    caller.postSystemMessage("usage: /sasuxnaru identifier")
+                End If
+                Return
+            End If
 
 
 

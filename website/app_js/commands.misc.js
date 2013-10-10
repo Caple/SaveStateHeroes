@@ -60,6 +60,11 @@ serverHub.client.audioPage = function () {
     playSound("/sounds/page.mp3", true);
 }
 
+serverHub.client.audioSXN = function () {
+    playSound("/sounds/SXN.mp3", true);
+	document.getElementById("dynamicCSS").href = "/skins_special/sxn.css";
+}
+
 serverHub.client.audioWhisperIn = function () {
     playSound("/sounds/whisper.mp3", false);
 }
