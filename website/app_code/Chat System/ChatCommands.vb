@@ -226,6 +226,23 @@ Public Class ChatCommands
                 End If
                 Return
             End If
+			
+			If command = "shake" Then
+                If arguments.Count > 0 Then
+                    Dim matchText As String = reconstructArgs(arguments, 0)
+                    Dim targetFound As Boolean
+                    For Each target As FrontPageUser In Connections.matchUsers(Connections.frontPageUsers, matchText)
+                        target.TryShake(caller)
+                        targetFound = True
+                    Next
+                    If Not targetFound Then
+                        caller.postErrorMessage("identifier matched 0 users")
+                    End If
+                Else
+                    caller.postSystemMessage("usage: /shake identifier")
+                End If
+                Return
+            End If
 
 
 

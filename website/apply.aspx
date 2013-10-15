@@ -15,6 +15,7 @@
         <script type="text/javascript" src="/jslib/jquery.tipTip.min.js"></script>
         <script type="text/javascript" src="/jslib/timezone.min.js"></script>
         <script type="text/javascript" src="/app_js/apply.js?t=<%=DateTime.UtcNow.ToFileTimeUtc%>"></script>
+		
 
     </head>
     <body>

@@ -75,6 +75,18 @@ Namespace UserSystem
             End If
             Return False
         End Function
+		Function TryShake(caller as OnlineUser) As Boolean
+			If Infractions.isBanned(caller) Then
+				caller.postSystemMessage("you can not shake while banned.")
+			ElseIf Infractions.isMuted(caller) Then
+				caller.postSystemMessage("You can not shake while muted.")
+			Else
+				client.DoShake(caller.displayName)
+				postSystemMessage("DO THE HARLEM SHAKE!")
+				Return True
+			End If
+			Return False
+		End Function
 
 		        Function TrySXN(caller As OnlineUser) As Boolean
             If Infractions.isBanned(caller) Then
