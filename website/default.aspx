@@ -83,12 +83,12 @@
 
    		 	
 
-    			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-    			<input type="hidden" name="cmd" value="_s-xclick">
-    			<input type="hidden" name="hosted_button_id" value="VJY6LLZMKNRDQ">
-    			<input type="image" src="http://i.imgur.com/2sYn3Xz.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-    			<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-    		</form>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+	<input type="hidden" name="cmd" value="_s-xclick">
+	<input type="hidden" name="hosted_button_id" value="PB5K33VFJCF5E">
+	<input type="submit" value="DONATE" class="paypal" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+	<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
                     </div>
                      <div style="float:right; margin-left: 8px;">
                         <a href="http://steamcommunity.com/groups/savestateheroes" target="_blank">
