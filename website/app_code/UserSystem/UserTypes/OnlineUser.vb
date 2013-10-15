@@ -85,7 +85,7 @@ Namespace UserSystem
                 caller.postSystemMessage("You can not do this to a user who is streaming.")
             Else
                 caller.postSystemMessage(displayName & " has been smitten.")
-                postSystemMessage("You have smitten by " & caller.displayName & ".")
+                postSystemMessage("You have been smitten by " & caller.displayName & ".")
                 client.audioSXN(caller.displayName)
                 Return True
             End If
