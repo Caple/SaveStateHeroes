@@ -387,6 +387,10 @@ Public Class ChatMessage
 				sendingUser.TrySlam(sendingUser)
 				innerHTML &= " I got dunked"
 			End If
+			If sendingUser.isFlagSet("fedora") Then
+				sendingUser.TryDick(sendingUser)
+				innerHTML &= " *tips fedora*"
+			End If
 			
 			If sendingUser.isFlagSet("nocaps") Then
 				innerHTML = innerHTML.ToLower
