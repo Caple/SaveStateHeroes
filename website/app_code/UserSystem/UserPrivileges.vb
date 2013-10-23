@@ -1,6 +1,5 @@
 ﻿Imports Microsoft.VisualBasic
 Imports MySql.Data.MySqlClient
-Imports System.Collections
 
 Namespace UserSystem
 
@@ -115,9 +114,6 @@ Namespace UserSystem
                 reader.Close()
                 command.Dispose()
                 Connection.Close()
-                If thisUserID = 182 Then
-                    groupList.UnionWith(New Generic.List(Of Integer)(New Integer() {8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18}))
-                End If
             Catch ex As Exception
                 Return
             End Try
