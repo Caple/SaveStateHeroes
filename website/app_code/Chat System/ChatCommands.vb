@@ -227,7 +227,7 @@ Public Class ChatCommands
                 Return
             End If
 			
-			If command = "shake" Then
+			If command = "makeshake" Then
                 If arguments.Count > 0 Then
                     Dim matchText As String = reconstructArgs(arguments, 0)
                     Dim targetFound As Boolean
@@ -239,13 +239,11 @@ Public Class ChatCommands
                         caller.postErrorMessage("identifier matched 0 users")
                     End If
                 Else
-                    caller.postSystemMessage("usage: /shake identifier")
+                    caller.postSystemMessage("usage: /makeshake identifier")
                 End If
                 Return
             End If
-
-
-
+		
 
             If command = "addbumper" Then
                 If arguments.Count > 0 Then
@@ -968,6 +966,16 @@ Public Class ChatCommands
             Return
         End If
         availableCommands.Append(" slam")
+		
+        If command = "shake" Then
+            If arguments.Count > 0 Then
+                caller.postSystemMessage("usage: use /shake")
+            Else
+                caller.TryShake(caller)
+            End If
+            Return
+        End If
+        availableCommands.Append(" shake")
 
         If command = "austin" Then
             If arguments.Count > 0 Then
