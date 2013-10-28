@@ -388,8 +388,10 @@ Public Class ChatMessage
 				innerHTML &= " I got dunked"
 			End If
 			If sendingUser.isFlagSet("fedora") Then
-				sendingUser.TryDick(sendingUser)
 				innerHTML &= " *tips fedora*"
+			End If
+			If sendingUser.isFlagSet("borat") Then
+				innerHTML &= " ...NAAAAAT"
 			End If
 			
 			If sendingUser.isFlagSet("nocaps") Then
