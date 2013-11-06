@@ -226,24 +226,7 @@ Public Class ChatCommands
                 End If
                 Return
             End If
-			
-			If command = "makeshake" Then
-                If arguments.Count > 0 Then
-                    Dim matchText As String = reconstructArgs(arguments, 0)
-                    Dim targetFound As Boolean
-                    For Each target As FrontPageUser In Connections.matchUsers(Connections.frontPageUsers, matchText)
-                        target.TryShake(caller)
-                        targetFound = True
-                    Next
-                    If Not targetFound Then
-                        caller.postErrorMessage("identifier matched 0 users")
-                    End If
-                Else
-                    caller.postSystemMessage("usage: /makeshake identifier")
-                End If
-                Return
-            End If
-		
+					
 
             If command = "addbumper" Then
                 If arguments.Count > 0 Then
@@ -629,6 +612,17 @@ Public Class ChatCommands
                 End If
                 Return
             End If
+			
+			If command = "shakeall" Then
+			 If arguments.Count < 1 Then
+                    For Each user As FrontPageUser In Connections.frontPageUsers.ToList
+                        user.tryshake(caller)
+                    Next
+                Else
+                        caller.postErrorMessage("It didn't work.")
+                    End If
+                Return
+            End If
 
             availableCommands.Append(" postas")
             availableCommands.Append(" pushmaintenance")
@@ -636,6 +630,7 @@ Public Class ChatCommands
             availableCommands.Append(" refreshbrowsers")
             availableCommands.Append(" status")
             availableCommands.Append(" setskin")
+			availableCommands.Append(" shakeall")
         End If
 
         If caller.privileges.isOfficer Then
