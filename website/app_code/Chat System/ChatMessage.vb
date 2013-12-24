@@ -350,6 +350,7 @@ Public Class ChatMessage
                                 largeContentAdded = True
                                 _weight += 3
                             Catch e As Exception
+                                ChatProcessor.postNewMessage(Nothing, Nothing, ChatMessage.MessageType.Channel_Mod, "Youtube parsing error -> " & e.Message)
                             End Try
                         Else
                             innerHTML = replaceFirstInstance(innerHTML, URLMatch.Value, [String].Format("[url={0}]{0}[/url]", URLMatch.Value))
