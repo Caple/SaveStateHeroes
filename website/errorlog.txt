@@ -1,0 +1,24 @@
+MySql.Data.MySqlClient.MySqlException -->  Unable to connect to any of the specified MySQL hosts.
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at ServerPersistance.reload() in C:\Projects\SaveStateHeroes\website\App_Code\Utilities\ServerPersistance.vb:line 73
+   at ASP.global_asax.Application_Start(Object sender, EventArgs e) in C:\Projects\SaveStateHeroes\website\global.asax:line 12
+
+MySql.Data.MySqlClient.MySqlException -->  Unable to connect to any of the specified MySQL hosts.
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at ServerPersistance.save() in C:\Projects\SaveStateHeroes\website\App_Code\Utilities\ServerPersistance.vb:line 39
+   at ASP.global_asax.Application_End(Object sender, EventArgs e) in C:\Projects\SaveStateHeroes\website\global.asax:line 33
+

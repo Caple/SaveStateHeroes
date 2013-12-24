@@ -105,6 +105,10 @@ function loadUserOptions() {
         selected = $('#playSoundOnMessageCheckbox');
         selected.prop('checked', value.playMessageSound);
         selected.trigger("change");
+
+        selected = $('#showSnowCheckbox');
+        selected.prop('checked', value.showSnow);
+        selected.trigger("change");
         
 
         selected = $('input:radio[name=VideoResizePrefrence]').filter('[value=' + value.sizeMode + ']');
@@ -165,6 +169,17 @@ function setResizingPrefrence(value) {
     var shouldAutoScroll = autoScrollNeeded();
     resizeContent();
     if (shouldAutoScroll) autoScroll();
+}
+
+function setShowSnow(checked) {
+    if (checked == "true" || checked == true) {
+        showSnow = true;
+        $(document).snowfall();
+    } else {
+        showSnow = false;
+        $(document).snowfall('clear');
+    }
+    if (initialized && !loadingValues) serverHub.server.setUserOption('showSnow', checked);
 }
 
 function setTangoStyle(checked) {

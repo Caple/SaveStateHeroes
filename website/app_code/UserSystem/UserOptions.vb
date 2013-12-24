@@ -43,6 +43,7 @@ Namespace UserSystem
                 data.disableAllSounds = userDataDictionary("disableallsounds")
                 data.playMessageSound = userDataDictionary("playmessagesound")
                 data.playerVolume = userDataDictionary("playervolume")
+                data.showSnow = userDataDictionary("showsnow")
                 Return data
             End Get
         End Property

@@ -15,5 +15,6 @@ Public Class UserOptionsCommon
     Public disableAllSounds As Boolean
     Public playMessageSound As Boolean
     Public playerVolume As Byte
+    Public showSnow As Boolean
 
 End Class

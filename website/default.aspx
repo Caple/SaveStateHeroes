@@ -32,6 +32,7 @@
         <script type="text/javascript" src="/jslib/swfobject.js"></script>
         <script type="text/javascript" src="/jslib/uuid.core.js"></script>
         <script type="text/javascript" src="/jslib/evercookie-0.4/evercookie.js"></script>
+        <script type="text/javascript" src="/jslib/snowfall.min.jquery.js"></script>
         <script type="text/javascript" src="/signalr/hubs"></script>
 
         <!-- my styles -->
@@ -254,7 +255,8 @@
                             <div style="padding-top: 3px;"><input id="showTimestampsCheckbox" type="checkbox" onchange="setTimeStampVar(this.checked);return false" /> Show timestamps on chat messages.</div>
                             <div style="padding-top: 3px;"><input id="tangoStyleCheckbox" type="checkbox" onchange="setTangoStyle(this.checked);return false" /> Use wide message spacing.</div>
                             <div style="padding-top: 3px;"><input id="playSoundOnMessageCheckbox" type="checkbox" onchange="playSoundOnMessage(this.checked);return false" /> Play sound for all messages.</div>
-                            <div style="padding-top: 3px; margin-bottom: 13px;"><input id="disableSoundsCheckbox" type="checkbox" onchange="disableSounds(this.checked);return false" /> Disable additive sound effects.</div>
+                            <div style="padding-top: 3px; "><input id="disableSoundsCheckbox" type="checkbox" onchange="disableSounds(this.checked);return false" /> Disable additive sound effects.</div>
+                            <div style="padding-top: 3px; margin-bottom: 13px;"><input id="showSnowCheckbox" type="checkbox" onchange="setShowSnow(this.checked);return false" /> Show seasonal effect (snowfall)</div>
                             <span style="font-size: 85%">Front Page Skin:</span><select id="skinSelect" style="width: 310px; margin: 0px;"></select> 
                         </div>
                         <div id='tab2'>
