@@ -624,24 +624,6 @@ Public Class ChatCommands
                 Return
             End If
 
-            availableCommands.Append(" postas")
-            availableCommands.Append(" pushmaintenance")
-            availableCommands.Append(" update")
-            availableCommands.Append(" refreshbrowsers")
-            availableCommands.Append(" status")
-            availableCommands.Append(" setskin")
-			availableCommands.Append(" shakeall")
-        End If
-
-        If caller.privileges.isOfficer Then
-
-            If command = "reloadinfractions" Then
-                Infractions.init()
-                caller.postSystemMessage("Infractions refreshed to current DB data.")
-                Return
-            End If
-            availableCommands.Append(" reloadinfractions")
-
             If command = "lockskip" Then
                 AutopilotHub.skippingLocked = True
                 caller.postSystemMessage("AP skipping locked")
@@ -678,6 +660,25 @@ Public Class ChatCommands
 
             availableCommands.Append(" pin")
             availableCommands.Append(" unpin")
+            availableCommands.Append(" postas")
+            availableCommands.Append(" pushmaintenance")
+            availableCommands.Append(" update")
+            availableCommands.Append(" refreshbrowsers")
+            availableCommands.Append(" status")
+            availableCommands.Append(" setskin")
+			availableCommands.Append(" shakeall")
+        End If
+
+        If caller.privileges.isOfficer Then
+
+            If command = "reloadinfractions" Then
+                Infractions.init()
+                caller.postSystemMessage("Infractions refreshed to current DB data.")
+                Return
+            End If
+            availableCommands.Append(" reloadinfractions")
+
+
 
 
             If command = "listguests" Then
