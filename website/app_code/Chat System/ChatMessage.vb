@@ -258,12 +258,12 @@ Public Class ChatMessage
                 End IF
 				If sendingUser.name = ("GaryOak") Then
                     frontHTML.Append("<img src='images/garybadge.png' style='margin-right: 3px;'/>")
-                End IF
-				If sendingUser.privileges.isBumper OrElse sendingUser.privileges.isBumper Then
+                End If
+                If (sendingUser <> ChatProcessor.systemUser) Then
                     frontHTML.Append("<img src=""")
-					frontHTML.Append(utils.getAvatarPath(sendingUser))
-					frontHTML.Append(""" class=""avatarClass"" />")
-                End IF
+                    frontHTML.Append(sendingUser.getPonyAvatar())
+                    frontHTML.Append(""" class=""avatarClass"" />")
+                End If
                 frontHTML.Append("<span style='font-weight: bold; color: ")
                 frontHTML.Append(sendingUser.options.chatColorName)
                 frontHTML.Append(";'>")

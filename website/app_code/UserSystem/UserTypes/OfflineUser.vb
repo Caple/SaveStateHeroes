@@ -11,6 +11,8 @@ Namespace UserSystem
         Protected Event unboundFromAccount()
         Protected Event objectRenamed()
 
+        Private ponyAvatar As String = ""
+
         Sub New(newIP As String)
             _ipAddress = newIP
             unbindAccount()
@@ -72,6 +74,7 @@ Namespace UserSystem
             _privileges = New userPrivileges(0)
             _options = New UserOptions(0)
             _persistence = Nothing
+            pony()
         End Sub
 
         Private Sub updateDisplayname()
@@ -84,6 +87,7 @@ Namespace UserSystem
             End If
             command.Dispose()
             connection.Close()
+            pony()
         End Sub
 
         ReadOnly Property isBoundToAccount() As Boolean
@@ -128,6 +132,7 @@ Namespace UserSystem
                 command.ExecuteNonQuery()
                 command.Dispose()
                 connection.Close()
+                pony()
             End Set
         End Property
 
@@ -205,6 +210,40 @@ Namespace UserSystem
                 persistence.saveField("blockedUsernames")
             End If
         End Sub
+
+        Public Sub pony()
+            If _name = "[system]" Then Return
+            Dim rand As System.Random = New System.Random()
+            Dim id As Integer = rand.Next(1, 7)
+            If id = 1 Then
+                _displayName = "Rainbow Dash"
+                ponyAvatar = "http://i.imgur.com/1mWAMUn.png"
+            End If
+            If id = 2 Then
+                _displayName = "Twilight Sparkle"
+                ponyAvatar = "http://i.imgur.com/aZ9P5i9.png"
+            End If
+            If id = 3 Then
+                _displayName = "Applejack"
+                ponyAvatar = "http://i.imgur.com/5JvIUp6.png"
+            End If
+            If id = 4 Then
+                _displayName = "Rarity"
+                ponyAvatar = "http://i.imgur.com/vjdaIOo.png"
+            End If
+            If id = 5 Then
+                _displayName = "Fluttershy"
+                ponyAvatar = "http://i.imgur.com/2pfXykz.png"
+            End If
+            If id = 6 Then
+                _displayName = "PinkiePie"
+                ponyAvatar = "http://i.imgur.com/LDfy4CI.png"
+            End If
+        End Sub
+
+        Public Function getPonyAvatar() As String
+            Return ponyAvatar
+        End Function
 
     End Class
 
