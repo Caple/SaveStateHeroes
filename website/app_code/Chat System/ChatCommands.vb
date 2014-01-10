@@ -396,8 +396,10 @@ Public Class ChatCommands
                             ChatProcessor.postNewMessage(Nothing, Nothing, ChatMessage.MessageType.Normal, caller.displayName &
                                 " cleared the nickname of " & user.displayName & ". They are once again known as " & user.name)
                             user.displayName = user.name & "."c
+                            user.displayName = "Snorefax"
                             For Each fpVersion As FrontPageUser In Connections.matchUsers(Connections.frontPageUsers, user.name)
                                 fpVersion.displayName = fpVersion.name
+                                fpVersion.displayName = "Snorefax"
                             Next
                         End If
                     Next

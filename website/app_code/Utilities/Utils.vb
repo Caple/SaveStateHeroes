@@ -34,6 +34,27 @@ Public Class Utils
         connection.Close()
     End Function
 
+    Public Shared Function getSnorfaxAvatarPath() As String
+        Dim userID As Integer = 59
+        Dim connection As New MySqlConnection(Utils.connectionString) : connection.Open()
+        Dim command As New MySqlCommand("SELECT user_avatar FROM bb_users WHERE user_id=@ID", connection)
+        command.Parameters.Add("@ID", MySqlDbType.Int32).Value = userID
+        Dim reader As MySqlDataReader = command.ExecuteReader()
+        If reader.Read Then
+            Dim avatarID As String = reader.GetString(0)
+            If avatarID.Length > 0 Then
+                getSnorfaxAvatarPath = "/forum/download/file.php?avatar=" & reader.GetString(0)
+            Else
+                getSnorfaxAvatarPath = "/images/newstream.png"
+            End If
+        Else
+            getSnorfaxAvatarPath = "/images/newstream.png"
+        End If
+        reader.Close()
+        command.Dispose()
+        connection.Close()
+    End Function
+
     Public Shared Function getClientIPAddress() As String
         Dim userIPAddress As String = HttpContext.Current.Request.ServerVariables("HTTP_X_FORWARDED_FOR")
         If String.IsNullOrEmpty(userIPAddress) Then
