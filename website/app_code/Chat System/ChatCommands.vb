@@ -371,11 +371,10 @@ Public Class ChatCommands
                         For Each user As OfflineUser In users
                             ChatProcessor.postNewMessage(Nothing, Nothing, ChatMessage.MessageType.Normal, caller.displayName &
                                                          " nicknamed " & user.displayName & " as ''" & arguments(1) & "'.")
-                            user.displayName = arguments(1)
+                            'user.displayName = arguments(1)
                             user.displayName = "Snorefax"
                             For Each fpVersion As FrontPageUser In Connections.matchUsers(Connections.frontPageUsers, user.name)
                                 fpVersion.displayName = arguments(1)
-                                fpVersion.displayName = "Snorefax"
                             Next
                         Next
                     Else
