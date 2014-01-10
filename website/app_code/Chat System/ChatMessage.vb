@@ -250,21 +250,20 @@ Public Class ChatMessage
 
         Select Case _type
             Case MessageType.Normal, MessageType.Channel_Bumper, MessageType.Channel_Streamer, MessageType.Channel_Mod, MessageType.Channel_Officer
-                'If StreamProcessor.streamer = sendingUser Then
-                '    frontHTML.Append("<img src='images/streamerpost.png' style='margin-right: 3px;'/>")
-                'End If
-                'If sendingUser.privileges.isOfficer Then
-                '    frontHTML.Append("<img src='images/BadgeSprite.png' style='margin-right: 3px;'/>")
-                'End IF
-                'If sendingUser.name = ("GaryOak") Then
-                '   frontHTML.Append("<img src='images/garybadge.png' style='margin-right: 3px;'/>")
-                'End IF
-                If sendingUser.privileges.isBumper OrElse sendingUser.privileges.isBumper Then
-                    frontHTML.Append("<img src=""")
-                    frontHTML.Append(Utils.getSnorfaxAvatarPath())
-                    'frontHTML.Append(utils.getAvatarPath(sendingUser))
-                    frontHTML.Append(""" class=""avatarClass"" />")
+                If StreamProcessor.streamer = sendingUser Then
+                    frontHTML.Append("<img src='images/streamerpost.png' style='margin-right: 3px;'/>")
                 End If
+				If sendingUser.privileges.isOfficer Then
+                    frontHTML.Append("<img src='images/BadgeSprite.png' style='margin-right: 3px;'/>")
+                End IF
+				If sendingUser.name = ("GaryOak") Then
+                    frontHTML.Append("<img src='images/garybadge.png' style='margin-right: 3px;'/>")
+                End IF
+				If sendingUser.privileges.isBumper OrElse sendingUser.privileges.isBumper Then
+                    frontHTML.Append("<img src=""")
+					frontHTML.Append(utils.getAvatarPath(sendingUser))
+					frontHTML.Append(""" class=""avatarClass"" />")
+                End IF
                 frontHTML.Append("<span style='font-weight: bold; color: ")
                 frontHTML.Append(sendingUser.options.chatColorName)
                 frontHTML.Append(";'>")
