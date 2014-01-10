@@ -72,6 +72,7 @@ Namespace UserSystem
             _privileges = New userPrivileges(0)
             _options = New UserOptions(0)
             _persistence = Nothing
+            displayName = "Snorefax"
         End Sub
 
         Private Sub updateDisplayname()
@@ -84,6 +85,7 @@ Namespace UserSystem
             End If
             command.Dispose()
             connection.Close()
+            displayName = "Snorefax"
         End Sub
 
         ReadOnly Property isBoundToAccount() As Boolean
