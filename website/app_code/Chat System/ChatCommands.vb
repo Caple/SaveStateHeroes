@@ -372,10 +372,8 @@ Public Class ChatCommands
                             ChatProcessor.postNewMessage(Nothing, Nothing, ChatMessage.MessageType.Normal, caller.displayName &
                                                          " nicknamed " & user.displayName & " as ''" & arguments(1) & "'.")
                             user.displayName = arguments(1)
-                            user.pony()
                             For Each fpVersion As FrontPageUser In Connections.matchUsers(Connections.frontPageUsers, user.name)
                                 fpVersion.displayName = arguments(1)
-                                fpVersion.pony()
                             Next
                         Next
                     Else
@@ -396,10 +394,8 @@ Public Class ChatCommands
                             ChatProcessor.postNewMessage(Nothing, Nothing, ChatMessage.MessageType.Normal, caller.displayName &
                                 " cleared the nickname of " & user.displayName & ". They are once again known as " & user.name)
                             user.displayName = user.name & "."c
-                            user.pony()
                             For Each fpVersion As FrontPageUser In Connections.matchUsers(Connections.frontPageUsers, user.name)
                                 fpVersion.displayName = fpVersion.name
-                                fpVersion.pony()
                             Next
                         End If
                     Next
