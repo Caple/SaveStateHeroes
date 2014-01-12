@@ -120,8 +120,14 @@ $(document).ready(function () {
                         $('.ui-dialog button').button("disable");
                     } else {
                         if (videoInfo.ytState != null) {
-                            $("#addVideoError").html("Invalid Video: " + videoInfo.ytState);
-                            $('.ui-dialog button').button("disable");
+						    $("#addVideoInfo").html("");
+                            $("#addVideoInfo").append("Title: " + videoInfo.title + "<br \>");
+                            $("#addVideoInfo").append("Author: " + videoInfo.author + "<br \>");
+                            $("#addVideoInfo").append("Length: " + videoInfo.lengthFriendly + "<br \>");
+                            addVID = videoInfo.videoID;
+                            $('.ui-dialog button').button("enable");
+                           // $("#addVideoError").html("Invalid Video: " + videoInfo.ytState);
+                          //  $('.ui-dialog button').button("disable");
                         } else {
                             $("#addVideoInfo").html("");
                             $("#addVideoInfo").append("Title: " + videoInfo.title + "<br \>");
