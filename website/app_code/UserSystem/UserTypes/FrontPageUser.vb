@@ -33,9 +33,10 @@ Namespace UserSystem
             guestShortHand = name.Substring(prefixLength, name.IndexOf(")") - prefixLength)
         End Sub
 
-       ' Public recentChatHistory As New List(Of ChatMessage)
-       ' Overridable ReadOnly Property isFloodingChat() As Boolean
-         '   Get
+        Public recentChatHistory As New List(Of ChatMessage)
+        Overridable ReadOnly Property isFloodingChat() As Boolean
+            Get
+			Return False
           '      If recentChatHistory.Count > 0 Then
               '      Dim totalWeight As Integer
                 '    For Each message As ChatMessage In recentChatHistory.ToList
@@ -48,8 +49,8 @@ Namespace UserSystem
               '  Else
               '      Return False
               '  End If
-          '  End Get
-       ' End Property
+            End Get
+        End Property
 
         Sub refreshBrowser()
             client.initiateRefresh(10)
