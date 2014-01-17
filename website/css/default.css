@@ -208,7 +208,7 @@ td {
     margin: 0;
     position:absolute;
     bottom:15px;
-    font-family: 'LuxiSansRegular';
+    font-family: 'Trebuchet MS';
     border-top:1px solid #444;
 }
 
@@ -237,7 +237,7 @@ td {
     border-width: thin;
     position:absolute;
     bottom:0;
-    font-family: 'LuxiSansRegular';
+    font-family: 'Comic Sans MS';
     font-size: 0.9em;
     border: none;
     border-top: 1px solid rgb(68, 68, 68);
