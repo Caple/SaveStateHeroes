@@ -260,6 +260,7 @@ input:focus, textarea:focus {
     margin-top: 12.8px;
     line-height: 117%;
     font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 1.2em;
 }
 
 .avatarClass {
@@ -288,7 +289,7 @@ margin-right:3px;
 .systemMessage {
     color: #32FFB4;
     font-family: 'CPMono_v07Plain';  
-    font-size: 1.2em;
+    font-size: .8em;
 }
 
 .chatTimestamp {
