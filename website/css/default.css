@@ -237,7 +237,7 @@ td {
     border-width: thin;
     position:absolute;
     bottom:0;
-    font-family: 'Comic Sans MS';
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
     font-size: 0.9em;
     border: none;
     border-top: 1px solid rgb(68, 68, 68);
@@ -259,7 +259,7 @@ input:focus, textarea:focus {
     margin-bottom: 12.8px;
     margin-top: 12.8px;
     line-height: 117%;
-    font-family: 'Comic Sans MS';
+    font-family: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
 
 .avatarClass {
