@@ -427,7 +427,7 @@ Public Class ChatCommands
                             For Each user As OfflineUser In users
                                 Infractions.add("ban", user.ipAddress, hours * 60 * 60, reason, caller)
                                 Infractions.add("ban", user.name, hours * 60 * 60, reason, caller)
-                                ChatProcessor.postNewMessage(Nothing, Nothing, ChatMessage.MessageType.ModAction, "" &
+                                ChatProcessor.postNewMessage(Nothing, Nothing, ChatMessage.MessageType.Channel_Officer, "" &
                                     caller.displayName & " banned " & user.displayName & " for " & hours & " hour(s).")
                                 For Each fpVersion As FrontPageUser In Connections.matchUsers(Connections.frontPageUsers, user.ipAddress)
                                     fpVersion.refreshBrowser()
