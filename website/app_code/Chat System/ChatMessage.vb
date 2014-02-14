@@ -35,6 +35,13 @@ Public Class ChatMessage
 
     Private recipientsLookup As New HashSet(Of String)
     Private visibleToAll As Boolean
+    Private validity As Boolean = False
+
+    Public ReadOnly Property isValid As Boolean
+        Get
+            Return validity
+        End Get
+    End Property
 
     Public ReadOnly Property id As Integer
         Get
@@ -540,7 +547,7 @@ Public Class ChatMessage
 
 
         _html = frontHTML.ToString() & innerHTML & backHTML.ToString()
-
+        validity = True
 
     End Sub
 

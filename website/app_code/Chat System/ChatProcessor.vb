@@ -42,6 +42,8 @@ Public Class ChatProcessor
         currentID += 1
         Dim message As New ChatMessage(currentID, sender, recipients, type, initialText)
 
+        If Not message.isValid Then Return False
+
         If message.html.Length > maxCharactersInBuiltMessage Then
             sender.postErrorMessage("message suppressed; too large")
             Return True
