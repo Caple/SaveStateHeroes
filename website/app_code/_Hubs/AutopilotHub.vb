@@ -19,7 +19,6 @@ Public Class AutopilotHub
         End Set
     End Property
 
-
     Private Shared recentHistory As New List(Of String)
     Private Shared randomClass As New Random
     Private Shared videos As New List(Of AutopilotVideo)
@@ -142,7 +141,12 @@ Public Class AutopilotHub
             If Not cachedXMLInformation.ContainsKey(videoID) Then
                 tryCache("http://www.youtube.com/watch?v=" & videoID)
             End If
-            Return moveXMLInformationToLive(videoID, user)
+            Dim video As AutopilotVideo = cachedXMLInformation(videoID)
+            If (video IsNot Nothing) Then
+                Return commitVideo(video, user)
+            Else
+                Return False
+            End If
         Else
             Return False
         End If
@@ -262,12 +266,10 @@ Public Class AutopilotHub
         Return Nothing
     End Function
 
-    Private Function moveXMLInformationToLive(ByVal videoID As String, ByVal apAdmin As FrontPageUser) As Boolean
+    Private Shared Function commitVideo(video As AutopilotVideo, ByVal apAdmin As FrontPageUser) As Boolean
         SyncLock videos
             Try
 
-                Dim video As AutopilotVideo = cachedXMLInformation(videoID)
-                video.addedBy = apAdmin.name
                 Dim statement As String = "INSERT INTO custom_autopilot " &
                     "(addedOn, itemOrder, addedByID, addedByIP, addedByName, videoID, videoTitle, videoAuthor, videoLength, isDeleted) " &
                     "VALUES (@A, @B, @C, @D, @E, @F, @G, @H, @I, @J);"
@@ -276,9 +278,17 @@ Public Class AutopilotHub
 
                 command.Parameters.Add("@A", MySqlDbType.Int64).Value = Now.ToFileTimeUtc
                 command.Parameters.Add("@B", MySqlDbType.Int32).Value = videos.Count
-                command.Parameters.Add("@C", MySqlDbType.Int32).Value = apAdmin.forumID
-                command.Parameters.Add("@D", MySqlDbType.VarChar).Value = apAdmin.ipAddress
-                command.Parameters.Add("@E", MySqlDbType.VarChar).Value = apAdmin.name
+                If (apAdmin IsNot Nothing) Then
+                    video.addedBy = apAdmin.name
+                    command.Parameters.Add("@C", MySqlDbType.Int32).Value = apAdmin.forumID
+                    command.Parameters.Add("@D", MySqlDbType.VarChar).Value = apAdmin.ipAddress
+                    command.Parameters.Add("@E", MySqlDbType.VarChar).Value = apAdmin.name
+                Else
+                    If video.addedBy Is Nothing Then video.addedBy = "unknown"
+                    command.Parameters.Add("@C", MySqlDbType.Int32).Value = 0
+                    command.Parameters.Add("@D", MySqlDbType.VarChar).Value = "0.0.0.0"
+                    command.Parameters.Add("@E", MySqlDbType.VarChar).Value = video.addedBy
+                End If
                 command.Parameters.Add("@F", MySqlDbType.VarChar).Value = video.videoID
                 command.Parameters.Add("@G", MySqlDbType.VarChar).Value = video.title
                 command.Parameters.Add("@H", MySqlDbType.VarChar).Value = video.author
@@ -292,7 +302,7 @@ Public Class AutopilotHub
                 command.Dispose()
                 connection.Close()
 
-                Clients.All.addedItem(video)
+                GlobalHost.ConnectionManager.GetHubContext(Of AutopilotHub).Clients.All.addedItem(video)
                 Return True
 
             Catch ex As Exception
@@ -323,6 +333,11 @@ Public Class AutopilotHub
         command.Dispose()
         connection.Close()
         videoTimer.Interval = 1000
+        ServerPersistance.setDefault("forcedVideoID", "")
+        ServerPersistance.setDefault("forcedVideoChance", 0)
+        Dim defaultVideoId As String = ServerPersistance.getField("forcedVideoID")
+        Dim forcedChance As Integer = ServerPersistance.getField("forcedVideoChance")
+        If Not defaultVideoId = "" Then setForcedVideo(defaultVideoId, forcedChance)
         AddHandler videoTimer.Elapsed, New Timers.ElapsedEventHandler(AddressOf Handler)
         ServerPersistance.setDefault("ap_shuffle", False)
         ServerPersistance.setDefault("ap_index", 0)
@@ -434,6 +449,17 @@ Public Class AutopilotHub
                 setPlayingVideo(newIndex, True)
             End If
         End If
+        If forcedVideo Is Nothing Then Return
+        If currentVideo Is forcedVideo Then Return
+        If StreamProcessor.isLive Then Return
+        If randomClass.Next(forcedVideoChance) = 0 Then
+            Dim index As Integer = videos.IndexOf(forcedVideo)
+            If index = -1 Then
+                commitVideo(forcedVideo, Nothing)
+                index = videos.IndexOf(forcedVideo)
+            End If
+            setPlayingVideo(index, True)
+        End If
     End Sub
 
     Public Shared ReadOnly Property videoID As String
@@ -459,6 +485,27 @@ Public Class AutopilotHub
     End Function
 
 
-    Dim a As Integer = 0
+    Private Shared forcedVideo As AutopilotVideo
+    Private Shared forcedVideoChance As Integer
+
+    Public Shared Function setForcedVideo(id As String, chance As Integer) As Boolean
+        If id Is Nothing Then
+            ServerPersistance.setField("forcedVideoID", "")
+            If forcedVideo IsNot Nothing Then
+                forcedVideo = Nothing
+                Return True
+            Else
+                Return False
+            End If
+        End If
+        ServerPersistance.setField("forcedVideoID", id)
+        ServerPersistance.setField("forcedVideoChance", chance)
+        Dim newVideo As AutopilotVideo = tryCache("http://www.youtube.com/watch?v=" & id)
+        If newVideo Is Nothing Then Return False
+        newVideo.addedBy = "KayKay"
+        forcedVideoChance = chance
+        forcedVideo = newVideo
+        Return True
+    End Function
 
 End Class

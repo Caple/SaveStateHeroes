@@ -671,15 +671,45 @@ Public Class ChatCommands
 
         If caller.privileges.isOfficer Then
 
+            If command = "setfv" Then
+                If arguments.Count = 1 Then
+                    AutopilotHub.setForcedVideo(arguments(0), 0)
+                ElseIf arguments.Count = 2 Then
+                    Dim chance As Integer
+                    If Not Integer.TryParse(arguments(1), chance) Then
+                        caller.postErrorMessage("chance must be a non-negative integer.")
+                        Return
+                    End If
+                    If AutopilotHub.setForcedVideo(arguments(0), chance) Then
+                        caller.postSystemMessage("Forced video set.")
+                    Else
+                        caller.postErrorMessage("Could not set forced video. Unable to cache that video ID.")
+                    End If
+                Else
+                    caller.postSystemMessage("usage: /" + command + " videoID [OPTIONAL:chance]")
+                    Return
+                End If
+                Return
+            End If
+            availableCommands.Append(" setfv")
+
+            If command = "clearfv" Then
+                If AutopilotHub.setForcedVideo(Nothing, 0) Then
+                    caller.postSystemMessage("Forced video has been cleared.")
+                Else
+                    caller.postErrorMessage("No forced video is currently set.")
+                End If
+                Return
+            End If
+            availableCommands.Append(" clearfv")
+
+
             If command = "reloadinfractions" Then
                 Infractions.init()
                 caller.postSystemMessage("Infractions refreshed to current DB data.")
                 Return
             End If
             availableCommands.Append(" reloadinfractions")
-
-
-
 
             If command = "listguests" Then
                 Dim guests As New List(Of OnlineUser)
@@ -879,18 +909,18 @@ Public Class ChatCommands
                 If matches.Count > 0 Then
                     Dim finalMessage As String = messageWithQuotes.Substring(CommandParts(1).Value.Length).TrimStart(" ")
                     For Each target As FrontPageUser In matches
-                    
-            If matches(0).name = "RaptorTurkey" Then
-		        If caller.privileges.canModChat Then
-				    ChatProcessor.postNewMessage(caller, {target}, ChatMessage.MessageType.Whisper, finalMessage) 
-				Return
-			Else
-                caller.postErrorMessage("Error. You aren't of the Elite.")
-				caller.TrySlam(caller)
-                Return
-            End If
-				End If
-                    
+
+                        If matches(0).name = "RaptorTurkey" Then
+                            If caller.privileges.canModChat Then
+                                ChatProcessor.postNewMessage(caller, {target}, ChatMessage.MessageType.Whisper, finalMessage)
+                                Return
+                            Else
+                                caller.postErrorMessage("Error. You aren't of the Elite.")
+                                caller.TrySlam(caller)
+                                Return
+                            End If
+                        End If
+
                         If caller = target OrElse Not Infractions.isSilentBanned(caller) Then
                             ChatProcessor.postNewMessage(caller, {target}, ChatMessage.MessageType.Whisper, finalMessage)
                         End If
@@ -945,11 +975,11 @@ Public Class ChatCommands
             Return
         End If
         availableCommands.Append(" dog")
-        
+
         If command = "duane" Then
             caller.client.redirect("http://www.youtube.com/embed/ItQKcKnfkIg?autoplay=1")
             Return
-        End if
+        End If
         availableCommands.Append(" duane")
 
         If command = "slam" Then
@@ -962,7 +992,7 @@ Public Class ChatCommands
             Return
         End If
         availableCommands.Append(" slam")
-		
+
         If command = "shake" Then
             If arguments.Count > 0 Then
                 caller.postSystemMessage("usage: use /shake")
@@ -999,11 +1029,11 @@ Public Class ChatCommands
 
         If command = "novideo" Then
             'If caller.privileges.canModChat Or caller.privileges.isStreamer Or caller.name = ("garhor") Then
-                caller.enableNoVideoMode()
-           ' Else
-          '      caller.postErrorMessage("Must be mod or streaming to use /novideo.")
-           ' End If
-           ' Return
+            caller.enableNoVideoMode()
+            ' Else
+            '      caller.postErrorMessage("Must be mod or streaming to use /novideo.")
+            ' End If
+            ' Return
         End If
         availableCommands.Append(" novideo")
 
