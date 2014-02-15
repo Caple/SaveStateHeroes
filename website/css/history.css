@@ -1,4 +1,8 @@
-﻿
+﻿/* hide avatars */
+.avatarClass {
+    display: none;   
+}
+
 /* basic stuff */
 html {
     margin: 0;
