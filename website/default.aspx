@@ -49,7 +49,7 @@
 
         <!-- my javascript -->
         <script type="text/javascript" src="/app_js/default.js?v=107"></script>
-        <script type="text/javascript" src="/app_js/chat.js?v=108"></script>
+        <script type="text/javascript" src="/app_js/chat.js?v=110"></script>
         <script type="text/javascript" src="/app_js/commands.misc.js?v=105"></script>
         <script type="text/javascript" src="/app_js/login.js?v=103"></script>
         <script type="text/javascript" src="/app_js/options.js?v=102"></script>

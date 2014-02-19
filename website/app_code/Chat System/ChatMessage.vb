@@ -285,10 +285,10 @@ Public Class ChatMessage
                 backHTML.Append("</span>")
             Case MessageType.ModAction
                 frontHTML.Append("<span style=""color: #F4F; font-family: 'CPMono_v07Plain'; font-size: 78%;"">")
-                frontHTML.Append("Global -&#62; ")
+                frontHTML.Append("Gary Oak -&#62; ")
                 backHTML.Append("</span>")
             Case MessageType.NotificationRawHTML
-                frontHTML.Append("Notification :: ")
+                frontHTML.Append("Gary Oak :: ")
                 frontHTML.Append("<span style=""color: #FFF; font-size: 115%;"">")
                 backHTML.Append("</span>")
             Case MessageType.WhisperEcho

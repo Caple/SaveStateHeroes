@@ -8,7 +8,7 @@ Public Class SystemUser
         MyBase.New("0.0.0.0", Nothing, Nothing)
         Dim account As New AccountDetails
         account.ipAddress = "0.0.0.0"
-        account.username = "[system]"
+        account.username = "Gary Oak"
         account.userID = 0
         bindAccount(account)
     End Sub

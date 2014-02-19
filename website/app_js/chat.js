@@ -240,7 +240,7 @@ function postLocalSystemMessage(message) {
     } else {
         sysMessage.append("<span class='chatTimestamp'>[" + postTime.toLocaleTimeString() + "]</span>")
     }
-    sysMessage.append(" System -&#62; " + message + "<br /></div>");
+    sysMessage.append(" Gary Oak -&#62; " + message + "<br /></div>");
     sysMessage.appendTo('#chatContent').fadeIn('slow', function () {
         if (shouldAutoScroll) autoScroll();
     });
